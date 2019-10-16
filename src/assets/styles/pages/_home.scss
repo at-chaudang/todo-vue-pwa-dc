@@ -1,0 +1,22 @@
+.todo-item {
+  @include pxRem(height, 45);
+  @include pxRem(padding, 0 15);
+  @include pxRem(margin, 10 0);
+  @include pxRem(border-radius, 5);
+  @include pxRem(box-shadow, 0 4 8 0 rgba(0, 0, 0, 0.08));
+  display: flex;
+  align-items: center;
+  background: map-get($colors, white);
+  .delete-icon {
+    @include pxRem(min-width, 15);
+    margin-left: auto;
+  }
+  .todo-text {
+    @include pxRem(padding, 0 15);
+  }
+  .input-checkbox {
+    @include pxRem(height, 20);
+    @include pxRem(width, 20);
+    margin: 0;
+  }
+}

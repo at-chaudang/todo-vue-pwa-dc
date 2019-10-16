@@ -1,12 +1,14 @@
 <template>
-  <div class="todo-list">
+  <div class="todo-list-page">
     <!-- TODO: -->
-    <TodoItem
-      v-for="(todo, index) in todos"
-      :key="todo.id"
-      :todo="todo"
-      :index="index"
-    />
+    <div class="container">
+      <TodoItem
+        v-for="(todo, index) in todos"
+        :key="todo.id"
+        :todo="todo"
+        :index="index"
+      />
+    </div>
   </div>
 </template>
 

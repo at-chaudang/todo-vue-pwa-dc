@@ -41,3 +41,6 @@ h5 {
 h6 {
   @include pxRem('font-size', 16);
 }
+ul, li {
+  list-style: none;
+}
