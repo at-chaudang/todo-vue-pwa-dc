@@ -25,21 +25,6 @@
     display: block;
   }
 }
-.ic-minus {
-  @include pxRem("min-width", 24);
-  background-image: url("assets/images/buttons/bt_minus.png");
-}
-.ic-plus {
-  @include pxRem("min-width", 24);
-  background-image: url("assets/images/buttons/bt_plus.png");
-}
-.ic-home {
-  @include pxRem("height", 17);
-  @include pxRem("width", 18);
-  background-image: url("assets/images/buttons/bt_home.png");
-  background-size: cover;
-  display: inline-block;
-}
 .ic-triangel-down {
   position: absolute;
   &::before {
@@ -82,34 +67,6 @@
     right: 0;
     transform: rotate(45deg);
   }
-}
-.icon-amenities {
-  @include pxRem("width", 40);
-  @include pxRem("height", 40);
-  &.icon-shower {
-    background-image: url("assets/images/icons/ic-shower.svg");
-  }
-  &.icon-slipper {
-    background-image: url("assets/images/icons/ic-slipper.svg");
-  }
-  &.icon-televison {
-    background-image: url("assets/images/icons/ic-televison.svg");
-  }
-  &.icon-cocktail {
-    background-image: url("assets/images/icons/ic-cocktail.svg");
-  }
-  &.icon-bathtub {
-    background-image: url("assets/images/icons/ic-bathtub.svg");
-  }
-  &.icon-wifi {
-    background-image: url("assets/images/icons/ic-wifi.svg");
-  }
-}
-.icon-sort-down {
-  @include pxRem("width", 9);
-  @include pxRem("height", 10);
-  background: url("assets/images/icons/ic-arrow-rounded.svg") no-repeat center;
-  @include pxRem("background-size", 9);
 }
 
 .iconf {
