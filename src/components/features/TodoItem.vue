@@ -1,15 +1,10 @@
 <template>
   <li class="todo-item">
-    <input type="checkbox" class="input-checkbox pointer" v-model="completed" />
-    <label v-if="!editing" class="todo-text" :class="{completed: completed}">{{title}}</label>
-    <input
-      v-else
-      v-focus
-      class="form-control todo-text"
-      type="text"
-      placeholder="Enter a task!"
-      v-model="title"
-    />
+    <label class="todo-text d-flex is-relative pointer" :class="{completed: completed}">
+      <span class="checkmark is-relative" :class="{completed: completed}"></span>
+      <input type="checkbox" class="d-none" v-model="completed" />
+      {{title}}
+    </label>
     <div class="delete-icon pointer">&times;</div>
   </li>
 </template>

@@ -1,22 +1,55 @@
 .todo-item {
-  @include pxRem(height, 45);
-  @include pxRem(padding, 0 15);
-  @include pxRem(margin, 10 0);
-  @include pxRem(border-radius, 5);
-  @include pxRem(box-shadow, 0 4 8 0 rgba(0, 0, 0, 0.08));
+  @include pxRem('height', 50);
+  @include pxRem('padding', 0 15);
+  @include pxRem('margin', 10 0);
+  @include pxRem('border-radius', 5);
+  @include pxRem('box-shadow', 0 4 8 0 rgba(0, 0, 0, 0.08));
   display: flex;
   align-items: center;
   background: map-get($colors, white);
   .delete-icon {
-    @include pxRem(min-width, 15);
+    @include pxRem('min-width', 15);
     margin-left: auto;
   }
   .todo-text {
-    @include pxRem(padding, 0 15);
+    @include pxRem('padding', 0 10);
+    @include pxRem('width', calc(100% - 15px));
   }
-  .input-checkbox {
-    @include pxRem(height, 20);
-    @include pxRem(width, 20);
-    margin: 0;
+  .checkmark {
+    @include pxRem('height', 25);
+    @include pxRem('width', 25);
+    @include pxRem('border-radius', 4);
+    @include pxRem('margin-right', 20);
+    background: map-get($colors, border);
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+    &.completed {
+      background: map-get($colors, primary);
+      opacity: 1;
+      &::after {
+        @include pxRem('left', 9);
+        @include pxRem('top', 5);
+        @include pxRem('width', 5);
+        @include pxRem('height', 10);
+        border: solid map-get($colors, white);
+        @include pxRem('border-width', 0 3 3 0);
+        position: absolute;
+        content: '';
+        display: block;
+        background: map-get($colors, primary);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  }
+  input:checked ~ .checkmark:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: map-get($colors, primary);
   }
 }
