@@ -1,24 +1,34 @@
 <template>
   <div class="todo-list-page">
-    <!-- TODO: -->
     <div class="container">
-      <TodoItem
-        v-for="(todo, index) in todos"
-        :key="todo.id"
-        :todo="todo"
-        :index="index"
-      />
+      <Header />
+      <TodoInput @addTodo="addTodo" class="mt-10" />
+      <ul class="mt-20">
+        <TodoItem
+          v-for="(todo, index) in todos"
+          :key="todo.id"
+          :todo="todo"
+          :index="index"
+        />
+      </ul>
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 import TodoItem from './../components/features/TodoItem'
+import TodoInput from './../components/features/TodoInput'
+import Header from './../components/layout/Header'
+import Footer from './../components/layout/Footer'
 
 export default {
   name: 'ToDoList',
   components: {
-    TodoItem
+    TodoItem,
+    TodoInput,
+    Header,
+    Footer
   },
   data () {
     return {
@@ -42,6 +52,15 @@ export default {
           editting: false
         }
       ]
+    }
+  },
+  methods: {
+    addTodo(newTodo, id) {
+      this.todos.push({
+        id,
+        title: this.newTodo,
+        completed: false
+      })
     }
   }
 }

@@ -8,12 +8,22 @@
   align-items: center;
   background: map-get($colors, white);
   .delete-icon {
-    @include pxRem('min-width', 15);
+    @include pxRem('min-width', 30);
+    @include pxRem('font-size', 24);
+    opacity: .5;
     margin-left: auto;
+    &:hover {
+      opacity: 1;
+    }
   }
   .todo-text {
     @include pxRem('padding', 0 10);
     @include pxRem('width', calc(100% - 15px));
+    -webkit-tap-highlight-color: transparent;
+    &.completed {
+      text-decoration: line-through;
+      color: map-get($colors, border);
+    }
   }
   .checkmark {
     @include pxRem('height', 25);
@@ -45,11 +55,30 @@
       }
     }
   }
-  input:checked ~ .checkmark:after {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: map-get($colors, primary);
+}
+
+.todo-form {
+  .form-control {
+    @include pxRem('height', 50);
+  }
+  .btn-add {
+    @include pxRem('width', 40);
+    @include pxRem('height', 50);
+    @include pxRem('line-height', 50);
+    @include pxRem('right', 15);
+    @include pxRem('font-size', 20);
+    background: none;
+    border: 0;
+    position: absolute;
+    -webkit-tap-highlight-color: transparent;
+    .icon-plus {
+      @include pxRem('width', 34);
+      @include pxRem('height', 34);
+      background: url('assets/icons/icons8-plus.svg');
+      background-size: cover;
+    }
+  }
+  .todo-input {
+    @include pxRem('padding', 0 23);
   }
 }
