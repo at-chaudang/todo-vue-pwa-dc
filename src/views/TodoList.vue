@@ -9,6 +9,7 @@
           :key="todo.id"
           :todo="todo"
           :index="index"
+          @removedTodo="removeTodo"
         />
       </ul>
       <Footer />
@@ -63,6 +64,9 @@ export default {
         title: newTodo,
         completed: false
       })
+    },
+    removeTodo(index) {
+      this.todos.splice(index, 1);
     }
   },
    watch: {
