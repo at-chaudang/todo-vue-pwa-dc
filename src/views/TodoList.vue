@@ -11,7 +11,7 @@
           @removedTodo="removeTodo"
           @updateStatus="updateStatus"
         />
-        <li v-if="!todosFilter.length">You have not task completed!</li>
+        <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
       </ul>
       <Footer :itemLeft="itemLeft"
       :showClearCompletedBtn="showClearCompletedBtn"

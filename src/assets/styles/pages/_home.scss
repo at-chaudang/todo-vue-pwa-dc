@@ -130,7 +130,7 @@
         background-size: cover;
       }
       .completed-task-icon {
-        background: url('assets/logo.png');
+        background: url('assets/icons/completed-task.png');
         background-size: cover;
       }
       .clear-task-icon {
@@ -139,4 +139,7 @@
       }
     }
   }
+}
+.message {
+  @include pxRem('padding', 20 0); 
 }
