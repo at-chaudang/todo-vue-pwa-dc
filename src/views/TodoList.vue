@@ -4,6 +4,11 @@
       <Header />
       <TodoInput @addTodo="addTodo" class="mt-10" />
       <ul class="mt-20 todo-list">
+        <transition-group
+          name="fade"
+          enter-active-class="animated fadeInUp"
+          leave-active-class="animated fadeOutDown"
+        >
         <TodoItem
           v-for="todo in todosFilter"
           :key="todo.id"
@@ -11,6 +16,7 @@
           @removedTodo="removeTodo"
           @updateStatus="updateStatus"
         />
+        </transition-group>
         <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
       </ul>
       <Footer :itemLeft="itemLeft"
@@ -113,3 +119,7 @@ export default {
   }
 }
 </script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss">
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+</style>
