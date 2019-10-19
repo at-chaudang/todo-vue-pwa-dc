@@ -10,7 +10,7 @@
   .delete-icon {
     @include pxRem('min-width', 30);
     @include pxRem('font-size', 24);
-    opacity: .5;
+    opacity: 0.5;
     margin-left: auto;
     &:hover {
       opacity: 1;
@@ -84,18 +84,59 @@
 }
 .todo-list-page {
   .todo-list {
-    @include pxRem('max-height', 300);
+    @include pxRem('height', 300);
     overflow: scroll;
   }
 }
 .page-footer {
   .tab-list {
-    opacity: .7;
+    opacity: 0.7;
   }
   .btn-tab {
     @include pxRem('padding', 0 10);
     border: 0;
     background: none;
     border-bottom: solid;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-footer {
+    @include pxRem('font-size', 10);
+    .item-left {
+      strong {
+        @include pxRem('font-size', 22);
+        @include pxRem('height', 26);
+        display: block;
+      }
+    }
+    .tabbar-item {
+      flex: 1 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      .icon {
+        @include pxRem('width', 20);
+        @include pxRem('height', 20);
+        margin: auto;
+        display: block !important;
+      }
+      .all-task-icon {
+        background: url('assets/logo.png');
+        background-size: cover;
+      }
+      .active-task-icon {
+        background: url('assets/logo.png');
+        background-size: cover;
+      }
+      .completed-task-icon {
+        background: url('assets/logo.png');
+        background-size: cover;
+      }
+      .clear-task-icon {
+        background: url('assets/logo.png');
+        background-size: cover;
+      }
+    }
   }
 }

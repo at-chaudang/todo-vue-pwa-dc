@@ -5,15 +5,17 @@
       <TodoInput @addTodo="addTodo" class="mt-10" />
       <ul class="mt-20 todo-list">
         <TodoItem
-          v-for="(todo, index) in todosFilter"
+          v-for="todo in todosFilter"
           :key="todo.id"
           :todo="todo"
-          :index="index"
           @removedTodo="removeTodo"
           @updateStatus="updateStatus"
         />
+        <li v-if="!todosFilter.length">You have not task completed!</li>
       </ul>
-      <Footer @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />
+      <Footer :itemLeft="itemLeft"
+      :showClearCompletedBtn="showClearCompletedBtn"
+      @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />
     </div>
   </div>
 </template>
@@ -85,16 +87,20 @@ export default {
         completed: false
       })
     },
-    updateStatus(index, completed) {
-      this.todos.some((v, i) => {
-        return i === index ? v.completed = completed : false;
+    updateStatus(id, completed) {
+      this.todos.some(v => {
+        return v.id === id ? v.completed = completed : false;
       });
     },
     onClearCompleted() {
       this.todos = this.todos.filter(v => !v.completed)
     },
-    removeTodo(index) {
-      this.todos.splice(index, 1);
+    removeTodo(id) {
+      this.todos.map((v, index) => {
+        if (v.id === id) {
+          this.todos.splice(index, 1);
+        }
+      })
     }
   },
    watch: {

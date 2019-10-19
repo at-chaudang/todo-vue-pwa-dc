@@ -1,31 +1,55 @@
 <template>
   <footer class="page-footer">
-    <div class="tab-list left">
-      <button class="btn-tab" :class="{active: filter == 'all'}" @click="filter = 'all'">All</button>
-      <button class="btn-tab" :class="{active: filter == 'active'}" @click="filter = 'active'">Active</button>
-      <button class="btn-tab" :class="{active: filter == 'completed'}" @click="filter = 'completed'">Completed</button>
-    </div>
-    <div class="right">
-      <transition name="fade">
-        <button @click="onClearCompleted" :disabled="showClearCompletedBtn">Clear Completed</button>
-      </transition>
-    </div>
+    <ul class="tab-list d-flex">
+      <li class="tabbar-item item-left">
+        <strong>{{itemLeft}}</strong>
+        item(s) left
+      </li>
+      <li class="tabbar-item btn-tab" :class="{active: filter == 'all'}" @click="filter = 'all'">
+        <i class="all-task-icon icon d-none"></i>
+        All task
+      </li>
+      <li
+        class="tabbar-item btn-tab"
+        :class="{active: filter == 'active'}"
+        @click="filter = 'active'"
+      >
+        <i class="active-task-icon icon d-none"></i>
+        Active
+      </li>
+      <li
+        class="tabbar-item btn-tab"
+        :class="{active: filter == 'completed'}"
+        @click="filter = 'completed'"
+      >
+        <i class="completed-task-icon icon d-none"></i>
+        Completed
+      </li>
+      <li class="tabbar-item" @click="onClearCompleted">
+        <button :disabled="!showClearCompletedBtn">
+          <i class="clear-task-icon icon d-none"></i>
+          Clear Completed
+        </button>
+      </li>
+    </ul>
   </footer>
 </template>
 
 <script>
 export default {
   name: 'Footer',
+  props: {
+    itemLeft: Number,
+    showClearCompletedBtn: Boolean
+  },
   data() {
     return {
-      filter: 'all',
-      showClearCompletedBtn: false
+      filter: 'all'
     }
   },
   methods: {
     onClearCompleted() {
-      // TODO:
-      this.$emit('onClearCompleted');
+      this.$emit('onClearCompleted')
     }
   },
   watch: {
