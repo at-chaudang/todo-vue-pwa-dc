@@ -23,13 +23,20 @@ export default {
     return {
       id: this.todo.id,
       title: this.todo.title,
-      completed: this.todo.completed,
-      cachedTask: ''
+      completed: this.todo.completed
     }
   },
   methods: {
     removeTodo(index) {
       this.$emit("removedTodo", index);
+    }
+  },
+  watch: {
+    completed: {
+      handler() {
+        this.$emit('updateStatus', this.index, this.completed);
+      },
+      deep: true
     }
   }
 }

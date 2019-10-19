@@ -88,3 +88,14 @@
     overflow: scroll;
   }
 }
+.page-footer {
+  .tab-list {
+    opacity: .7;
+  }
+  .btn-tab {
+    @include pxRem('padding', 0 10);
+    border: 0;
+    background: none;
+    border-bottom: solid;
+  }
+}

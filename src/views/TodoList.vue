@@ -5,14 +5,15 @@
       <TodoInput @addTodo="addTodo" class="mt-10" />
       <ul class="mt-20 todo-list">
         <TodoItem
-          v-for="(todo, index) in todos"
+          v-for="(todo, index) in todosFilter"
           :key="todo.id"
           :todo="todo"
           :index="index"
           @removedTodo="removeTodo"
+          @updateStatus="updateStatus"
         />
       </ul>
-      <Footer />
+      <Footer @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />
     </div>
   </div>
 </template>
@@ -34,7 +35,8 @@ export default {
   },
   data () {
     return {
-      todos: todoLocalStorage.get("todos")
+      todos: todoLocalStorage.get("todos"),
+      filter: 'all'
       // [
       //   {
       //     id: 1,
@@ -57,6 +59,24 @@ export default {
       // ]
     }
   },
+  computed: {
+    itemLeft() {
+      return this.todos.filter(v => !v.completed).length;
+    },
+    todosFilter() {
+      switch (this.filter) {
+        case 'active':
+          return this.todos.filter(v => !v.completed);
+        case 'completed':
+          return this.todos.filter(v => v.completed);
+        default:
+          return this.todos;
+      }
+    },
+    showClearCompletedBtn() {
+      return this.todos.filter(v => v.completed).length > 0;
+    }
+  },
   methods: {
     addTodo(newTodo, id) {
       this.todos.unshift({
@@ -64,6 +84,14 @@ export default {
         title: newTodo,
         completed: false
       })
+    },
+    updateStatus(index, completed) {
+      this.todos.some((v, i) => {
+        return i === index ? v.completed = completed : false;
+      });
+    },
+    onClearCompleted() {
+      this.todos = this.todos.filter(v => !v.completed)
     },
     removeTodo(index) {
       this.todos.splice(index, 1);

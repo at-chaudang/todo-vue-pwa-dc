@@ -1,19 +1,40 @@
 <template>
-  <header class="page-header">
-    <h1 class="logo txt-center">
-      <span class="red">T</span>
-      <span class="green">o</span>
-      <span class="red">D</span>
-      <span class="green">o</span>
-    </h1>
-  </header>
+  <footer class="page-footer">
+    <div class="tab-list left">
+      <button class="btn-tab" :class="{active: filter == 'all'}" @click="filter = 'all'">All</button>
+      <button class="btn-tab" :class="{active: filter == 'active'}" @click="filter = 'active'">Active</button>
+      <button class="btn-tab" :class="{active: filter == 'completed'}" @click="filter = 'completed'">Completed</button>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <button @click="onClearCompleted" :disabled="showClearCompletedBtn">Clear Completed</button>
+      </transition>
+    </div>
+  </footer>
 </template>
 
 <script>
 export default {
   name: 'Footer',
-  data () {
-    return {}
+  data() {
+    return {
+      filter: 'all',
+      showClearCompletedBtn: false
+    }
+  },
+  methods: {
+    onClearCompleted() {
+      // TODO:
+      this.$emit('onClearCompleted');
+    }
+  },
+  watch: {
+    filter: {
+      handler(filter) {
+        this.$emit('filter', filter)
+      },
+      deep: true
+    }
   }
 }
 </script>
