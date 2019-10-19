@@ -25,8 +25,8 @@
         <i class="completed-task-icon icon d-none"></i>
         Completed
       </li>
-      <li class="tabbar-item" @click="onClearCompleted">
-        <button :disabled="!showClearCompletedBtn">
+      <li class="tabbar-item pointer item-clear" @click="onClearCompleted">
+        <button class="border-none" :disabled="!showClearCompletedBtn">
           <i class="clear-task-icon icon d-none"></i>
           Clear Completed
         </button>

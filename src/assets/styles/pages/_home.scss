@@ -94,9 +94,23 @@
   }
   .btn-tab {
     @include pxRem('padding', 0 10);
+    cursor: pointer;
     border: 0;
     background: none;
     border-bottom: solid;
+  }
+  .tabbar-item {
+    flex: 1 0;
+    text-align: center;
+  }
+  .item-left {
+    flex: 2 0;
+  }
+  .item-clear {
+    flex: 2 0;
+    button {
+      background: transparent;
+    }
   }
 }
 
@@ -142,4 +156,7 @@
 }
 .message {
   @include pxRem('padding', 20 0); 
+}
+.logo {
+  text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
 }
