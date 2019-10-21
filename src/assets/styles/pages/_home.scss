@@ -136,19 +136,19 @@
         display: block !important;
       }
       .all-task-icon {
-        background: url('assets/logo.png');
+        background: url('assets/icons/home.png');
         background-size: cover;
       }
       .active-task-icon {
-        background: url('assets/logo.png');
+        background: url('assets/icons/task-active.png');
         background-size: cover;
       }
       .completed-task-icon {
-        background: url('assets/icons/completed-task.png');
+        background: url('assets/icons/task-done.png');
         background-size: cover;
       }
       .clear-task-icon {
-        background: url('assets/logo.png');
+        background: url('assets/icons/trash.png');
         background-size: cover;
       }
     }
