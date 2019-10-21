@@ -1,0 +1,9 @@
+.container {
+  @include pxRem('max-width', 600);
+}
+body {
+  background: #ececec;
+}
+h1 {
+  @include pxRem('font-size', 40);
+}

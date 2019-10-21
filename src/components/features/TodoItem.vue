@@ -5,7 +5,7 @@
       <input type="checkbox" class="d-none" v-model="completed" />
       {{title}}
     </label>
-    <div class="delete-icon pointer">&times;</div>
+    <div class="delete-icon pointer" @click="removeTodo(id)">&times;</div>
   </li>
 </template>
 
@@ -16,16 +16,26 @@ export default {
     todo: {
       type: Object,
       required: true
-    },
-    index: Number
+    }
   },
   data () {
     return {
       id: this.todo.id,
       title: this.todo.title,
-      completed: this.todo.completed,
-      editing: this.todo.editing,
-      cachedTask: ''
+      completed: this.todo.completed
+    }
+  },
+  methods: {
+    removeTodo(id) {
+      this.$emit("removedTodo", id);
+    }
+  },
+  watch: {
+    completed: {
+      handler() {
+        this.$emit('updateStatus', this.id, this.completed);
+      },
+      deep: true
     }
   }
 }

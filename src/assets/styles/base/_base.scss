@@ -1,8 +1,9 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
-  @include pxRem('padding-top', 80);
+  @include pxRem('padding-top', 50);
   font-family: $font-body;
   line-height: 1.6;
   font-weight: 400;
