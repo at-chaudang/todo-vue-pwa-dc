@@ -74,7 +74,7 @@
     .icon-plus {
       @include pxRem('width', 34);
       @include pxRem('height', 34);
-      background: url('assets/icons/icons8-plus.svg');
+      background: url('assets/images/icons8-plus.svg');
       background-size: cover;
     }
   }
@@ -136,19 +136,19 @@
         display: block !important;
       }
       .all-task-icon {
-        background: url('assets/icons/home.png');
+        background: url('assets/images/home.png');
         background-size: cover;
       }
       .active-task-icon {
-        background: url('assets/icons/task-active.png');
+        background: url('assets/images/task-active.png');
         background-size: cover;
       }
       .completed-task-icon {
-        background: url('assets/icons/task-done.png');
+        background: url('assets/images/task-done.png');
         background-size: cover;
       }
       .clear-task-icon {
-        background: url('assets/icons/trash.png');
+        background: url('assets/images/trash.png');
         background-size: cover;
       }
     }

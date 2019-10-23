@@ -29,9 +29,9 @@
 <script>
 import TodoItem from './../components/features/TodoItem'
 import TodoInput from './../components/features/TodoInput'
-import Header from './../components/layout/Header'
-import Footer from './../components/layout/Footer'
-import { todoLocalStorage } from './../assets/store/todoLocalStorage.js'
+import Header from './../components/layouts/Header'
+import Footer from './../components/layouts/Footer'
+import { todoLocalStorage } from './../store/todoLocalStorage.js'
 
 export default {
   name: 'ToDoList',
