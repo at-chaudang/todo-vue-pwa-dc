@@ -5,7 +5,7 @@
       <input type="checkbox" class="d-none" v-model="completed" />
       {{title}}
     </label>
-    <div class="delete-icon pointer" @click="removeTodo(id)">&times;</div>
+    <div class="delete-icon pointer d-flex center" @click="removeTodo(id)">&times;</div>
   </li>
 </template>
 

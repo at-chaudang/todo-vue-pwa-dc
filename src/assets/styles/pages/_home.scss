@@ -1,6 +1,6 @@
 .todo-item {
   @include pxRem('height', 50);
-  @include pxRem('padding', 0 15);
+  @include pxRem('padding', 0 22);
   @include pxRem('margin', 10 0);
   @include pxRem('border-radius', 5);
   @include pxRem('box-shadow', 0 4 8 0 rgba(0, 0, 0, 0.08));
@@ -17,7 +17,6 @@
     }
   }
   .todo-text {
-    @include pxRem('padding', 0 10);
     @include pxRem('width', calc(100% - 15px));
     -webkit-tap-highlight-color: transparent;
     &.completed {
@@ -67,6 +66,7 @@
     @include pxRem('line-height', 50);
     @include pxRem('right', 15);
     @include pxRem('font-size', 20);
+    justify-content: center;
     background: none;
     border: 0;
     position: absolute;
@@ -79,7 +79,7 @@
     }
   }
   .todo-input {
-    @include pxRem('padding', 0 23);
+    @include pxRem('padding', 0 20);
   }
 }
 .todo-list-page {
@@ -95,9 +95,13 @@
   .btn-tab {
     @include pxRem('padding', 0 10);
     cursor: pointer;
-    border: 0;
     background: none;
-    border-bottom: solid;
+    &.active {
+      color: map-get($colors, primary);
+    }
+    &:hover {
+      color: map-get($colors, primary);
+    }
   }
   .tabbar-item {
     flex: 1 0;
@@ -129,10 +133,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      .icon {
-        @include pxRem('width', 20);
-        @include pxRem('height', 20);
-        margin: auto;
+      .iconf {
         display: block !important;
       }
       .all-task-icon {
@@ -156,7 +157,4 @@
 }
 .message {
   @include pxRem('padding', 20 0); 
-}
-.logo {
-  text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
 }

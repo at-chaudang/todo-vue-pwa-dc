@@ -7,8 +7,8 @@
       v-model="newTodo"
       @keyup.enter="addTodo"
     />
-    <button type="button" class="btn btn-add d-flex" :disabled="!newTodo" @click="addTodo">
-      <i class="icon icon-plus"></i>
+    <button type="button" class="btn btn-add d-flex center" :disabled="!newTodo" :class="{active: newTodo}" @click="addTodo">
+      <i class="iconf iconf-add"></i>
     </button>
   </div>
 </template>

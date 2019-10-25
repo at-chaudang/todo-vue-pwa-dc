@@ -12,6 +12,15 @@
 }
 .d-flex {
   display: flex;
+  &.center {
+    justify-content: center;
+  }
+  &.vertical {
+    align-items: center;
+  }
+  &.horizontal {
+    justify-content: center;
+  }
 }
 .align-item-center {
   align-items: center;

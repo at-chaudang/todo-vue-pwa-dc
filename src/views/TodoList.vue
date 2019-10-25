@@ -2,23 +2,25 @@
   <div class="todo-list-page">
     <div class="container">
       <Header />
-      <TodoInput @addTodo="addTodo" class="mt-10" />
-      <ul class="mt-20 todo-list">
-        <transition-group
-          name="fade"
-          enter-active-class="animated fadeInUp"
-          leave-active-class="animated fadeOutDown"
-        >
-        <TodoItem
-          v-for="todo in todosFilter"
-          :key="todo.id"
-          :todo="todo"
-          @removedTodo="removeTodo"
-          @updateStatus="updateStatus"
-        />
-        </transition-group>
-        <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
-      </ul>
+      <div class="main-container">
+        <TodoInput @addTodo="addTodo" class="mt-10" />
+        <ul class="mt-20 todo-list">
+          <transition-group
+            name="fade"
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated fadeOutUp"
+          >
+          <TodoItem
+            v-for="todo in todosFilter"
+            :key="todo.id"
+            :todo="todo"
+            @removedTodo="removeTodo"
+            @updateStatus="updateStatus"
+          />
+          </transition-group>
+          <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
+        </ul>
+      </div>
       <Footer :itemLeft="itemLeft"
       :showClearCompletedBtn="showClearCompletedBtn"
       @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />

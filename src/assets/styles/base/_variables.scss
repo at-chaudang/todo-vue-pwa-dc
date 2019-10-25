@@ -12,7 +12,7 @@ $breakpoints: (
 
 // == Colors ===
 $colors: (
-  primary: #ff8a87,
+  primary: #72ca57,
   secondary: #484848,
   txt-dark: #333,
   txt-gray: #8e8e8e,
@@ -68,65 +68,10 @@ $colors: (
 $icomoon-font-family: "icomoon" !default;
 $icomoon-font-path: "assets/fonts/icomoon" !default;
 
-$iconf-to: "\e900";
-$iconf-instagram: "\e901";
-$iconf-twitter: "\e902";
-$iconf-facebook: "\e903";
-$iconf-grid: "\e904";
-$iconf-share: "\e905";
-$iconf-minus-circle: "\e906";
-$iconf-plus-circle: "\e907";
-$iconf-questions-circle: "\e908";
-$iconf-prev-chevron: "\e909";
-$iconf-next-chevron: "\e90a";
-$iconf-location: "\e90b";
-$iconf-villa: "\e90c";
-$iconf-close: "\e90d";
-$iconf-money: "\e90e";
-$iconf-phone: "\e90f";
-$iconf-person: "\e910";
-$iconf-guest: "\e911";
-$iconf-calendar: "\e912";
-$iconf-email: "\e913";
-$iconf-bt-filter: "\e914";
-$iconf-bt-map: "\e915";
-$iconf-coin: "\e916";
-$iconf-link: "\e917";
-$iconf-upload: "\e918";
-$iconf-question: "\e919";
-$iconf-answer: "\e91a";
-$iconf-airport: "\e91b";
-$iconf-banks: "\e91c";
-$iconf-bookstores: "\e91d";
-$iconf-bridge: "\e91e";
-$iconf-church: "\e91f";
-$iconf-club: "\e920";
-$iconf-drugstore: "\e921";
-$iconf-coffee: "\e922";
-$iconf-gas-stations: "\e923";
-$iconf-hospitals: "\e924";
-$iconf-hotels: "\e925";
-$iconf-groceries: "\e926";
-$iconf-other-location: "\e927";
-$iconf-pagoda: "\e928";
-$iconf-parks: "\e929";
-$iconf-parking-lots: "\e92a";
-$iconf-policy: "\e92b";
-$iconf-post-offices: "\e92c";
-$iconf-resort: "\e92d";
-$iconf-restaurants: "\e92e";
-$iconf-schools: "\e92f";
-$iconf-store: "\e930";
-$iconf-supermarket: "\e931";
-$iconf-train-station: "\e932";
-$iconf-email-login: "\e933";
-$iconf-password: "\e934";
-$iconf-edit: "\e935";
-$iconf-logout: "\e936";
-$iconf-my-booking: "\e937";
-$iconf-my-profile: "\e938";
-$iconf-canelled: "\e939";
-$iconf-completed: "\e93a";
-$iconf-in-progress: "\e93b";
-$iconf-reserved: "\e93c";
-$iconf-web: "\e93d";
+$iconf-home: "\e906";
+$iconf-add: "\e907";
+$iconf-task-active: "\e908";
+$iconf-remove_done: "\e909";
+$iconf-done_outline: "\e90a";
+$iconf-task-done: "\e90b";
+$iconf-list-task: "\e9bb";
