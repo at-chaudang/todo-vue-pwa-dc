@@ -4,7 +4,7 @@
   border: 1px solid #e4e4e4;
 }
 .main-container {
-  @include pxRem(padding, 20);
+  @include pxRem(padding, 15);
   @include pxRem(margin, 15);
 }
 h1 {
