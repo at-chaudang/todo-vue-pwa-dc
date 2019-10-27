@@ -5,6 +5,7 @@
 }
 .main-container {
   @include pxRem(padding, 20);
+  @include pxRem(margin, 15);
 }
 h1 {
   @include pxRem(font-size, 40);

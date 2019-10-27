@@ -99,6 +99,7 @@
   }
   .main-container {
     @include pxRem(padding-top, 110);
+    @include pxRem(margin, 0);
   }
   .page-header {
     position: fixed;
@@ -109,6 +110,7 @@
   .page-footer {
     @include pxRem(font-size, 10);
     @include pxRem(padding, 10);
+    line-height: 1;
     background: map-get($colors, footer-bg);
     position: fixed;
     z-index: 2;
