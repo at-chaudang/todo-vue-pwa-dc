@@ -3,7 +3,7 @@
     <div class="container">
       <Header />
       <div class="main-container">
-        <TodoInput @addTodo="addTodo" class="mt-10" />
+        <TodoInput @addTodo="addTodo" />
         <ul class="mt-20 todo-list">
           <transition-group
             name="fade"
