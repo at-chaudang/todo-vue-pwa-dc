@@ -1,8 +1,11 @@
-.logo {
-  @include pxRem(padding, 10 0);
-  text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
-  background: map-get($colors, primary);
-  span {
-    @include pxRem(letter-spacing, 4);
+.page-header {
+  @include pxRem(height, 90);
+  .logo {
+    @include pxRem(padding, 10 0);
+    text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
+    background: map-get($colors, primary);
+    span {
+      @include pxRem(letter-spacing, 4);
+    }
   }
 }

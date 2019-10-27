@@ -1,5 +1,35 @@
 .page-footer {
   @include pxRem(padding, 10 0);
-  background: map-get($colors, border);
-  border-top: 1px solid map-get($colors, border);
+  background: map-get($colors, footer-bg);
+  .tab-list {
+    opacity: 0.7;
+  }
+  .btn-tab {
+    @include pxRem('padding', 0 10);
+    cursor: pointer;
+    background: none;
+    &.active {
+      color: map-get($colors, primary);
+    }
+    &:hover {
+      color: map-get($colors, primary);
+    }
+  }
+  .tabbar-item {
+    flex: 1 0;
+    text-align: center;
+    color: map-get($colors, white);
+    button {
+      color: map-get($colors, white);
+    }
+  }
+  .item-left {
+    flex: 2 0;
+  }
+  .item-clear {
+    flex: 2 0;
+    button {
+      background: transparent;
+    }
+  }
 }

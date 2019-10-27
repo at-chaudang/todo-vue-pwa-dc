@@ -4,10 +4,7 @@
   border: 1px solid #e4e4e4;
 }
 .main-container {
-  @include pxRem(padding, 20 30);
-}
-body {
-  background: #ececec;
+  @include pxRem(padding, 20);
 }
 h1 {
   @include pxRem(font-size, 40);
