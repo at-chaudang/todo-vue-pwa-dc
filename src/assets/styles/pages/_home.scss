@@ -25,7 +25,7 @@
     }
   }
   @function convertPxToRem($px) {
-    @return 0rem + strip-units($px)/16;
+    @return 0rem + strip-units($px) / 16;
   }
   &-text {
     // @include pxRem(max-width, calc(100% - 70px));
@@ -110,10 +110,11 @@
     border: 0;
   }
   .main-container {
-    @include pxRem(padding, 115 10 0 10);
+    @include pxRem(padding, 95 10 0 10);
     @include pxRem(margin, 0);
   }
   .page-header {
+    @include pxRem(height, 70);
     position: fixed;
     top: 0;
     z-index: 2;
@@ -124,7 +125,7 @@
   }
   .page-footer {
     @include pxRem(font-size, 10);
-    @include pxRem(height, 50);
+    @include pxRem(height, 60);
     line-height: unset;
     background: map-get($colors, footer-bg);
     position: fixed;
