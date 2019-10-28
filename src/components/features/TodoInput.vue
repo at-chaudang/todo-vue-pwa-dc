@@ -1,28 +1,21 @@
 <template>
-  <div>
-    <div class="todo-form d-flex is-relative">
-      <input
-        type="text"
-        class="todo-input form-control"
-        placeholder="Enter a task!"
-        v-model="newTodo"
-        @keyup.enter="addTodo"
-      />
-      <button
-        type="button"
-        class="btn btn-add d-flex center"
-        :disabled="!newTodo"
-        :class="{active: newTodo, disabled: !newTodo}"
-        @click="addTodo"
-      >
-        <i class="iconf iconf-add"></i>
-      </button>
-    </div>
-    <div class="tabbar-item item-left txt-center mt-10">
-      <span>You have</span>
-      <strong>{{itemLeft}} 6 </strong>
-      <span>task(s) left.</span>
-    </div>
+  <div class="todo-form d-flex is-relative">
+    <input
+      type="text"
+      class="todo-input form-control"
+      placeholder="Enter a task!"
+      v-model="newTodo"
+      @keyup.enter="addTodo"
+    />
+    <button
+      type="button"
+      class="btn btn-add d-flex center"
+      :disabled="!newTodo"
+      :class="{active: newTodo, disabled: !newTodo}"
+      @click="addTodo"
+    >
+      <i class="iconf iconf-add"></i>
+    </button>
   </div>
 </template>
 

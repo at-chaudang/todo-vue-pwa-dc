@@ -4,6 +4,7 @@
       <Header />
       <div class="main-container">
         <TodoInput @addTodo="addTodo" />
+        <TodoRemaining :itemLeft="itemLeft" />
         <ul class="todo-list">
           <transition-group
             name="fade"
@@ -18,10 +19,9 @@
             @updateStatus="updateStatus"
           />
           </transition-group>
-          <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
         </ul>
       </div>
-      <Footer :itemLeft="itemLeft"
+      <Footer
       :showClearCompletedBtn="showClearCompletedBtn"
       @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>
@@ -31,6 +31,7 @@
 <script>
 import TodoItem from './../components/features/TodoItem'
 import TodoInput from './../components/features/TodoInput'
+import TodoRemaining from './../components/features/TodoRemaining'
 import Header from './../components/layouts/Header'
 import Footer from './../components/layouts/Footer'
 import { todoLocalStorage } from './../store/todoLocalStorage.js'
@@ -40,6 +41,7 @@ export default {
   components: {
     TodoItem,
     TodoInput,
+    TodoRemaining,
     Header,
     Footer
   },

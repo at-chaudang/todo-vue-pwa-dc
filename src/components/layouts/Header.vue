@@ -1,5 +1,5 @@
 <template>
-  <header class="page-header d-flex vertical">
+  <header class="page-header d-flex vertical horizontal">
     <h1 class="logo txt-center">
       <span class="white">Todo</span>
     </h1>

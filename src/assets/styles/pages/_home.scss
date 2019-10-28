@@ -96,7 +96,7 @@
 }
 .todo-list-page {
   .todo-list {
-    @include pxRem(height, 310);
+    @include pxRem(height, 350);
     @include pxRem(margin-bottom, 100);
     overflow: auto;
   }
