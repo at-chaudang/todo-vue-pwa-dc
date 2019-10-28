@@ -1,12 +1,10 @@
 .page-footer {
-  @include pxRem(padding, 10 0);
   @include pxRem(line-height, 50);
   background: map-get($colors, footer-bg);
   .tab-list {
     opacity: 0.7;
   }
   .btn-tab {
-    @include pxRem('padding', 0 10);
     cursor: pointer;
     background: none;
     &.active {
@@ -25,10 +23,10 @@
     }
   }
   .item-left {
-    flex: 2 0;
+    flex: 1 0;
   }
   .item-clear {
-    flex: 2 0;
+    flex: 1 0;
     button {
       background: transparent;
     }

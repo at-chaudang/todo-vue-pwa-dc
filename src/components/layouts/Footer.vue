@@ -1,9 +1,6 @@
 <template>
   <footer class="page-footer">
     <ul class="tab-list d-flex vertical">
-      <li class="tabbar-item item-left">
-        <strong>{{itemLeft}}</strong><span> item(s) left</span>
-      </li>
       <li class="tabbar-item btn-tab" :class="{active: filter == 'all'}" @click="filter = 'all'">
         <i class="iconf iconf-list-task d-none"></i>
         All task
@@ -24,11 +21,9 @@
         <i class="iconf iconf-task-done d-none"></i>
         Completed
       </li>
-      <li class="tabbar-item pointer item-clear" @click="onClearCompleted">
-        <button class="border-none" :disabled="!showClearCompletedBtn">
+      <li class="tabbar-item pointer item-clear" @click="onClearCompleted" :class="{active: showClearCompletedBtn, disabled: !showClearCompletedBtn}">
           <i class="iconf iconf-remove-done d-none"></i>
           Clear Completed
-        </button>
       </li>
     </ul>
   </footer>

@@ -16,13 +16,24 @@
       opacity: 1;
     }
   }
-  .todo-text {
+  &-container {
     @include pxRem(width, calc(100% - 15px));
     -webkit-tap-highlight-color: transparent;
     &.completed {
       text-decoration: line-through;
       color: map-get($colors, border);
     }
+  }
+  @function convertPxToRem($px) {
+    @return 0rem + strip-units($px)/16;
+  }
+  &-text {
+    // @include pxRem(max-width, calc(100% - 70px));
+    // $widthA: convertPxToRem(70);
+    // $widthB: 20px;
+    // font-size: $widthB;
+    // max-width: calc(100% - $widthA);
+    // max-width: calc(100% - (converPxToRem(70)));
   }
   .checkmark {
     @include pxRem(height, 25);
@@ -79,13 +90,14 @@
     }
   }
   .todo-input {
-    @include pxRem(padding, 0 20);
+    @include pxRem(padding, 0 50 0 20);
     @include pxRem(margin, 0 10);
   }
 }
 .todo-list-page {
   .todo-list {
     @include pxRem(height, 310);
+    @include pxRem(margin-bottom, 100);
     overflow: auto;
   }
 }
@@ -98,7 +110,7 @@
     border: 0;
   }
   .main-container {
-    @include pxRem(padding-top, 110);
+    @include pxRem(padding, 115 10 0 10);
     @include pxRem(margin, 0);
   }
   .page-header {
@@ -107,16 +119,18 @@
     z-index: 2;
     width: 100%;
   }
+  .tab-list {
+    height: 100%;
+  }
   .page-footer {
     @include pxRem(font-size, 10);
-    @include pxRem(padding, 10);
-    line-height: 1;
+    @include pxRem(height, 50);
+    line-height: unset;
     background: map-get($colors, footer-bg);
     position: fixed;
     z-index: 2;
     bottom: 0;
     width: 100%;
-    height: auto;
     .item-left {
       strong {
         @include pxRem(font-size, 22);
@@ -152,5 +166,5 @@
   }
 }
 .message {
-  @include pxRem('padding', 20 0); 
+  @include pxRem('padding', 20 0);
 }

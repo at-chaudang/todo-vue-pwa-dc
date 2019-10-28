@@ -166,7 +166,7 @@
   text-transform: lowercase;
 }
 .active {
-  color: map-get($colors, primary);
+  color: map-get($colors, primary) !important;
 }
 
 // Color
@@ -276,4 +276,11 @@
 }
 .clr {
   @extend %clr;
+}
+.disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  &:hover * {
+    color: unset;
+  }
 }

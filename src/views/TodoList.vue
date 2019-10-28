@@ -4,7 +4,7 @@
       <Header />
       <div class="main-container">
         <TodoInput @addTodo="addTodo" />
-        <ul class="mt-20 todo-list">
+        <ul class="todo-list">
           <transition-group
             name="fade"
             enter-active-class="animated fadeInDown"
@@ -23,7 +23,7 @@
       </div>
       <Footer :itemLeft="itemLeft"
       :showClearCompletedBtn="showClearCompletedBtn"
-      @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />
+      @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>
   </div>
 </template>
