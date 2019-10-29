@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       newTodo: '',
-      maxLengthTodo: 35
+      maxLengthTodo: 30
     };
   },
   methods: {
