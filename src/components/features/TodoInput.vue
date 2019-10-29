@@ -6,6 +6,7 @@
       placeholder="Enter a task!"
       v-model="newTodo"
       @keyup.enter="addTodo"
+      :maxlength="maxLengthTodo"
     />
     <button
       type="button"
@@ -21,26 +22,27 @@
 
 <script>
 export default {
-  name: "TodoInput",
+  name: 'TodoInput',
   data() {
     return {
-      newTodo: ""
+      newTodo: '',
+      maxLengthTodo: 35
     };
   },
   methods: {
     addTodo() {
       if (this.newTodo.trim().length) {
-        this.$emit("addTodo", this.newTodo, this.getNewId());
-        this.newTodo = "";
+        this.$emit('addTodo', this.newTodo, this.getNewId());
+        this.newTodo = '';
       }
     },
     getNewId() {
       const id = this.getLastId() + 1;
-      localStorage.setItem("lastTodoId", id);
+      localStorage.setItem('lastTodoId', id);
       return id;
     },
     getLastId() {
-      return +localStorage.getItem("lastTodoId") || 0;
+      return +localStorage.getItem('lastTodoId') || 0;
     }
   }
 };
