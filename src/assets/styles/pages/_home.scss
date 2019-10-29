@@ -24,9 +24,6 @@
       color: map-get($colors, border);
     }
   }
-  @function convertPxToRem($px) {
-    @return 0rem + strip-units($px) / 16;
-  }
   .checkmark {
     @include pxRem(height, 25);
     @include pxRem(width, 25);
