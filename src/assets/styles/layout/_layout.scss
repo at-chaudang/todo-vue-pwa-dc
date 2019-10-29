@@ -1,9 +1,12 @@
 .container {
-  @include pxRem('max-width', 600);
+  @include pxRem(max-width, 600);
+  padding: 0;
+  border: 1px solid #e4e4e4;
 }
-body {
-  background: #ececec;
+.main-container {
+  @include pxRem(padding, 15);
+  @include pxRem(margin, 15 5);
 }
 h1 {
-  @include pxRem('font-size', 40);
+  @include pxRem(font-size, 40);
 }

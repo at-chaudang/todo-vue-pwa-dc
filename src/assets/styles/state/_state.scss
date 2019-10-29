@@ -12,6 +12,15 @@
 }
 .d-flex {
   display: flex;
+  &.center {
+    justify-content: center;
+  }
+  &.vertical {
+    align-items: center;
+  }
+  &.horizontal {
+    justify-content: center;
+  }
 }
 .align-item-center {
   align-items: center;
@@ -157,7 +166,7 @@
   text-transform: lowercase;
 }
 .active {
-  color: map-get($colors, primary);
+  color: map-get($colors, primary) !important;
 }
 
 // Color
@@ -267,4 +276,14 @@
 }
 .clr {
   @extend %clr;
+}
+.disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  &:hover * {
+    color: unset;
+  }
+}
+.italic {
+  font-style: italic;
 }

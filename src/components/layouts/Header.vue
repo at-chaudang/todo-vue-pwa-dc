@@ -1,10 +1,7 @@
 <template>
-  <header class="page-header">
-    <h1 class="logo txt-center">
-      <span class="red">T</span>
-      <span class="green">o</span>
-      <span class="red">D</span>
-      <span class="green">o</span>
+  <header class="page-header d-flex vertical horizontal">
+    <h1 class="logo txt-center white">
+      Todo
     </h1>
   </header>
 </template>

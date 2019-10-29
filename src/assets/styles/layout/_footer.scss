@@ -1,0 +1,36 @@
+.page-footer {
+  @include pxRem(line-height, 50);
+  background: map-get($colors, footer-bg);
+  .tab-list {
+    opacity: 0.7;
+  }
+  .btn-tab {
+    cursor: pointer;
+    background: none;
+    &.active {
+      color: map-get($colors, primary);
+    }
+  }
+  .tabbar-item {
+    flex: 1 0;
+    text-align: center;
+    color: map-get($colors, white);
+    &:hover {
+      color: map-get($colors, primary);
+    }
+    &.disabled {
+      &:hover {
+        color: map-get($colors, white);
+      }
+    }
+  }
+  .item-left {
+    flex: 1 0;
+  }
+  .item-clear {
+    flex: 1 0;
+    &:hover {
+      color: map-get($colors, primary);
+    }
+  }
+}

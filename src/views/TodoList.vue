@@ -2,26 +2,29 @@
   <div class="todo-list-page">
     <div class="container">
       <Header />
-      <TodoInput @addTodo="addTodo" class="mt-10" />
-      <ul class="mt-20 todo-list">
-        <transition-group
-          name="fade"
-          enter-active-class="animated fadeInUp"
-          leave-active-class="animated fadeOutDown"
-        >
-        <TodoItem
-          v-for="todo in todosFilter"
-          :key="todo.id"
-          :todo="todo"
-          @removedTodo="removeTodo"
-          @updateStatus="updateStatus"
-        />
-        </transition-group>
-        <li v-if="!todosFilter.length" class="txt-center message">You have not task! :(</li>
-      </ul>
-      <Footer :itemLeft="itemLeft"
+      <div class="main-container">
+        <TodoInput @addTodo="addTodo" />
+        <TodoRemaining :itemLeft="itemLeft" />
+        <ul class="todo-list">
+          <transition-group
+            name="fade"
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated fadeOutUp"
+          >
+          <TodoItem
+            v-for="todo in todosFilter"
+            :key="todo.id"
+            :todo="todo"
+            @removedTodo="removeTodo"
+            @updateStatus="updateStatus"
+          />
+          </transition-group>
+        </ul>
+      </div>
+      <Footer
+      :disabledActiveTab="disabledActiveTab"
       :showClearCompletedBtn="showClearCompletedBtn"
-      @onClearCompleted="onClearCompleted" @filter="filter = $event" class="mt-20" />
+      @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>
   </div>
 </template>
@@ -29,6 +32,7 @@
 <script>
 import TodoItem from './../components/features/TodoItem'
 import TodoInput from './../components/features/TodoInput'
+import TodoRemaining from './../components/features/TodoRemaining'
 import Header from './../components/layouts/Header'
 import Footer from './../components/layouts/Footer'
 import { todoLocalStorage } from './../store/todoLocalStorage.js'
@@ -38,6 +42,7 @@ export default {
   components: {
     TodoItem,
     TodoInput,
+    TodoRemaining,
     Header,
     Footer
   },
@@ -45,26 +50,6 @@ export default {
     return {
       todos: todoLocalStorage.get("todos"),
       filter: 'all'
-      // [
-      //   {
-      //     id: 1,
-      //     title: 'Học NodeJS',
-      //     completed: true,
-      //     editting: false
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Học Angular 8',
-      //     completed: false,
-      //     editting: false
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Học VueJS',
-      //     completed: false,
-      //     editting: false
-      //   }
-      // ]
     }
   },
   computed: {

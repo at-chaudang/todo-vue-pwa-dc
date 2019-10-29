@@ -1,11 +1,11 @@
 <template>
   <li class="todo-item">
-    <label class="todo-text d-flex is-relative pointer" :class="{completed: completed}">
+    <label class="todo-item-container d-flex is-relative pointer" :class="{completed: completed}">
       <span class="checkmark is-relative" :class="{completed: completed}"></span>
-      <input type="checkbox" class="d-none" v-model="completed" />
-      {{title}}
+      <input type="checkbox" class="d-none" v-model="completed"/>
+      <span class="txt-limit todo-item-text" :title="title">{{title}}</span>
     </label>
-    <div class="delete-icon pointer" @click="removeTodo(id)">&times;</div>
+    <div class="delete-icon pointer d-flex center" @click="removeTodo(id)">&times;</div>
   </li>
 </template>
 
