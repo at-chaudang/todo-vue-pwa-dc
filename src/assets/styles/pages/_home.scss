@@ -27,14 +27,6 @@
   @function convertPxToRem($px) {
     @return 0rem + strip-units($px) / 16;
   }
-  &-text {
-    // @include pxRem(max-width, calc(100% - 70px));
-    // $widthA: convertPxToRem(70);
-    // $widthB: 20px;
-    // font-size: $widthB;
-    // max-width: calc(100% - $widthA);
-    // max-width: calc(100% - (converPxToRem(70)));
-  }
   .checkmark {
     @include pxRem(height, 25);
     @include pxRem(width, 25);
