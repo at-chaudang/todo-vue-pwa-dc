@@ -22,6 +22,8 @@
         </ul>
       </div>
       <Footer
+      :disabledActiveTab="disabledActiveTab"
+      :disabledCompletedTab="disabledCompletedTab"
       :showClearCompletedBtn="showClearCompletedBtn"
       @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>
@@ -49,29 +51,15 @@ export default {
     return {
       todos: todoLocalStorage.get("todos"),
       filter: 'all'
-      // [
-      //   {
-      //     id: 1,
-      //     title: 'Học NodeJS',
-      //     completed: true,
-      //     editting: false
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Học Angular 8',
-      //     completed: false,
-      //     editting: false
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Học VueJS',
-      //     completed: false,
-      //     editting: false
-      //   }
-      // ]
     }
   },
   computed: {
+    disabledActiveTab() {
+      return this.itemLeft === 0;
+    },
+    disabledCompletedTab() {
+      return this.todos.length === this.itemLeft;
+    },
     itemLeft() {
       return this.todos.filter(v => !v.completed).length;
     },

@@ -10,16 +10,18 @@
     &.active {
       color: map-get($colors, primary);
     }
-    &:hover {
-      color: map-get($colors, primary);
-    }
   }
   .tabbar-item {
     flex: 1 0;
     text-align: center;
     color: map-get($colors, white);
-    button {
-      color: map-get($colors, white);
+    &:hover {
+      color: map-get($colors, primary);
+    }
+    &.disabled {
+      &:hover {
+        color: map-get($colors, white);
+      }
     }
   }
   .item-left {
@@ -27,8 +29,8 @@
   }
   .item-clear {
     flex: 1 0;
-    button {
-      background: transparent;
+    &:hover {
+      color: map-get($colors, primary);
     }
   }
 }

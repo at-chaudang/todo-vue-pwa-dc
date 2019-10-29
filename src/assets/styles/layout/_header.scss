@@ -2,10 +2,7 @@
   @include pxRem(height, 90);
   background: map-get($colors, primary);
   .logo {
-    @include pxRem(padding, 10 0);
+    @include pxRem(letter-spacing, 4);
     text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
-    span {
-      @include pxRem(letter-spacing, 4);
-    }
   }
 }
