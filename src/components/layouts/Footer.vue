@@ -7,7 +7,7 @@
       </li>
       <li
         class="tabbar-item btn-tab"
-        :class="{active: filter == 'active', disabled: disabledActiveTab}"
+        :class="{active: filter == 'active'}"
         @click="filter = 'active'"
       >
         <i class="iconf iconf-task-active d-none"></i>
@@ -15,7 +15,7 @@
       </li>
       <li
         class="tabbar-item btn-tab"
-        :class="{active: filter == 'completed', disabled: disabledCompletedTab}"
+        :class="{active: filter == 'completed'}"
         @click="filter = 'completed'"
       >
         <i class="iconf iconf-task-done d-none"></i>
@@ -34,8 +34,6 @@ export default {
   name: 'Footer',
   props: {
     itemLeft: Number,
-    disabledActiveTab: Boolean,
-    disabledCompletedTab: Boolean,
     showClearCompletedBtn: Boolean
   },
   data() {

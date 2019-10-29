@@ -23,7 +23,6 @@
       </div>
       <Footer
       :disabledActiveTab="disabledActiveTab"
-      :disabledCompletedTab="disabledCompletedTab"
       :showClearCompletedBtn="showClearCompletedBtn"
       @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>
@@ -54,12 +53,6 @@ export default {
     }
   },
   computed: {
-    disabledActiveTab() {
-      return this.itemLeft === 0;
-    },
-    disabledCompletedTab() {
-      return this.todos.length === this.itemLeft;
-    },
     itemLeft() {
       return this.todos.filter(v => !v.completed).length;
     },
