@@ -11,6 +11,7 @@
       <button @click="signUp" class="btn btn-primary">Register</button>
 
       <p class="text-small text-center mt-1">You have a account? Login</p>
+
     </div>
   </div>
 </template>
