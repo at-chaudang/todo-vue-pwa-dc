@@ -1,19 +1,26 @@
 <template>
-  <div class="login-form">
-    <div class="main-container">
-      <h3>Sign in</h3>
-      <div class="form-group">
-        <input v-model="email"  type="text" placeholder="Email" class="form-control">
+  <div class="login-form auth-pages">
+    <div class="auth-container">
+      <div class="title mb-1">
+        <h2>Welcome!</h2>
       </div>
-      <div class="form-group">
-        <input v-model="email" type="password" placeholder="Password" class="form-control">
+      <div class="form-custom">
+        <div class="form-group mb-2">
+          <label class="control-label">Email</label>
+          <input v-model="email" type="text" class="form-control">
+        </div>
+        <div class="form-group mb-2">
+          <label class="control-label">Password</label>
+          <input v-model="password" type="password" class="form-control">
+        </div>
+        <button class="btn btn-primary">Login In</button>
+
+        <p class="text-small text-center mt-1">or sign in with</p>
+        <div class="btn-group mt-1">
+          <button @click="signInWithGoogle" class="btn btn-outline-primary">Signin with Google</button>
+          <button @click="signInWithFacebook" class="btn btn-outline-primary ">Signin with Facebook</button>
+        </div>
       </div>
-      <button class="btn btn-primary">Login In</button>
-
-      <p class="text-small text-center mt-1">You don't have a account? You can create one</p>
-      <button @click="signInWithGoogle" class="btn btn-primary">Signin with Google</button>
-      <button @click="signInWithFacebook" class="btn btn-primary">Signin with Facebook</button>
-
     </div>
   </div>
 </template>

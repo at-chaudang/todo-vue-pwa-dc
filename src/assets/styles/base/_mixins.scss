@@ -112,3 +112,7 @@
     border-color: map-get($colors, primary);
   }
 }
+
+@mixin itemWidth($number) {
+  width: calc(100%/2 - 5%);
+}

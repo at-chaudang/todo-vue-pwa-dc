@@ -1,16 +1,24 @@
 <template>
-  <div class="register-form">
-    <div class="main-container">
-      <h3>Register</h3>
-      <div class="form-group">
-        <input type="text" v-model="email" placeholder="Email" class="form-control">
+  <div class="register-form auth-pages">
+    <div class="auth-container">
+      <div class="title  mb-1">
+        <h2>Register</h2>
       </div>
-      <div class="form-group">
-        <input type="password" v-model="password" placeholder="Password" class="form-control">
+      <div class="form-custom">
+        <div class="form-group mb-2">
+            <label class="control-label">Email</label>
+            <input v-model="email" type="text" class="form-control">
+          </div>
+          <div class="form-group mb-2">
+            <label class="control-label">Password</label>
+            <input v-model="password" type="password" class="form-control">
+          </div>
+        <button @click="signUp" class="btn btn-primary">Register</button>
       </div>
-      <button @click="signUp" class="btn btn-primary">Register</button>
 
-      <p class="text-small text-center mt-1">You have a account? Login</p>
+      <p class="text-small text-center mt-1">You have a account?
+        <router-link v-bind:to="'login'">Login</router-link>
+      </p>
 
     </div>
   </div>

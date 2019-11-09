@@ -13,7 +13,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: map-get($colors, secondary);
+  color: map-get($colors, primary);
 }
 h1,
 h2,
@@ -48,9 +48,18 @@ ul, li {
 .mt-1 {
   margin-top: 1rem;
 }
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
 .text-small {
-  @include pxRem('font-size', 11);
+  @include pxRem('font-size', 12);
 }
 .text-center {
   text-align: center;
+}
+.text-gray {
+  color: map-get($colors, txt-gray);
 }
