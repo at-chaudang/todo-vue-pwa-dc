@@ -8,7 +8,7 @@
       <div class="form-group">
         <input type="password" placeholder="Password" class="form-control">
       </div>
-      <button class="btn btn-primary">Sign In</button>
+      <button class="btn btn-primary">Login In</button>
 
       <p class="text-small text-center mt-1">You don't have a account? You can create one</p>
     </div>
