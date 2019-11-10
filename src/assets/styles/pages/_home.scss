@@ -20,7 +20,7 @@
     -webkit-tap-highlight-color: transparent;
     &.completed {
       text-decoration: line-through;
-      color: map-get($colors, border);
+      // color: map-get($colors, border);
     }
   }
   .checkmark {
@@ -28,17 +28,13 @@
     @include pxRem(width, 25);
     @include pxRem(border-radius, 4);
     @include pxRem(margin-right, 20);
-    background: map-get($colors, border);
-    opacity: 0.5;
-    &:hover {
-      opacity: 1;
-    }
+    border: 1px solid map-get($colors, primary);
     &.completed {
       background: map-get($colors, primary);
       opacity: 1;
       &::after {
-        @include pxRem(left, 9);
-        @include pxRem(top, 5);
+        @include pxRem(left, 7);
+        @include pxRem(top, 4);
         @include pxRem(width, 5);
         @include pxRem(height, 10);
         border: solid map-get($colors, white);

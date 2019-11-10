@@ -37,6 +37,14 @@ button {
     border: solid 1px map-get($colors, border);
   }
 }
+.btn-outline-primary {
+  background: transparent;
+  color: map-get($colors, primary);
+  border: solid 1.3px map-get($colors, primary);
+  &:active {
+    background-color: map-get($colors, border);
+  }
+}
 .btn-text {
   @include pxRem('padding', 11 20);
   height: auto;
@@ -44,4 +52,12 @@ button {
   border: 0;
   background: none;
   font-weight: 700;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  .btn {
+    @include itemWidth(2);
+    border-color: map-get($colors, border-btn);
+  }
 }

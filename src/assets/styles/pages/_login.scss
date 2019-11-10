@@ -1,0 +1,7 @@
+.login-form {
+  .title {
+    @include pxRem(height, 100);
+    display: flex;
+    align-items: flex-end;
+  }
+}

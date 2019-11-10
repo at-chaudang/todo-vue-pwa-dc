@@ -22,7 +22,6 @@
         </ul>
       </div>
       <Footer
-      :disabledActiveTab="disabledActiveTab"
       :showClearCompletedBtn="showClearCompletedBtn"
       @onClearCompleted="onClearCompleted" @filter="filter = $event" />
     </div>

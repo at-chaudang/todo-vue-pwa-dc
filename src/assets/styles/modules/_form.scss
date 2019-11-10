@@ -60,3 +60,30 @@ form {
     @include pxRem("padding", 0 15);
   }
 }
+.form-custom {
+  .form-group {
+    .control-label {
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .form-control {
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      border-bottom: solid 1.2px map-get($colors, border);
+      color: map-get($colors, txt-gray);
+      height: 24px;
+      font-size: 14px;
+      padding: 0;
+      &:focus {
+        border-bottom: solid 1.2px map-get($colors, border-btn);
+      }
+    }
+  }
+  .btn {
+    @include pxRem(height, 35);
+    @include pxRem(border-radius, 10);
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
