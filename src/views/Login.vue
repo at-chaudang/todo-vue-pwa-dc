@@ -7,7 +7,7 @@
       <div class="form-custom">
         <div class="form-group mb-2">
           <label class="control-label">Email</label>
-          <input v-model="email" type="text" class="form-control" />
+          <input v-model="email" type="text" class="form-control" autocomplete=""/>
         </div>
         <div class="form-group mb-2">
           <label class="control-label">Password</label>
@@ -30,8 +30,8 @@
 <script>
 import firebase from "firebase";
 
-var provider = new firebase.auth.GoogleAuthProvider();
-var provider = new firebase.auth.FacebookAuthProvider();
+var providerGoogle = new firebase.auth.GoogleAuthProvider();
+var providerFacebook = new firebase.auth.FacebookAuthProvider();
 
 export default {
   name: "login",
@@ -57,48 +57,47 @@ export default {
     signInWithGoogle() {
       firebase
         .auth()
-        .signInWithPopup(provider)
-        .then(function(result) {
+        .signInWithPopup(providerGoogle)
+        .then(() => {
           // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
+          // var token = result.credential.accessToken;
           // The signed-in user info.
-          var user = result.user;
-          console.log(user);
+          // var user = result.user;
           this.$router.replace({ name: "TodoList" });
           // ...
         })
-        .catch(function(error) {
+        .catch(() => {
           // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          // var errorCode = error.code;
+          // var errorMessage = error.message;
           // The email of the user's account used.
-          var email = error.email;
+          // var email = error.email;
           // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
+          // var credential = error.credential;
           // ...
         });
     },
     signInWithFacebook() {
       firebase
         .auth()
-        .signInWithPopup(provider)
-        .then(function(result) {
+        .signInWithPopup(providerFacebook)
+        .then(() => {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          var token = result.credential.accessToken;
+          // var token = result.credential.accessToken;
           // The signed-in user info.
-          var user = result.user;
+          // var user = result.user;
           this.$router.replace({ name: "TodoList" });
 
           // ...
         })
-        .catch(function(error) {
+        .catch(() => {
           // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          // var errorCode = error.code;
+          // var errorMessage = error.message;
           // The email of the user's account used.
-          var email = error.email;
+          // var email = error.email;
           // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
+          // var credential = error.credential;
           // ...
         });
     }

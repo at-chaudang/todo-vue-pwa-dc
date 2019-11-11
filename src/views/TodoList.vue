@@ -11,33 +11,36 @@
             enter-active-class="animated fadeInDown"
             leave-active-class="animated fadeOutUp"
           >
-          <TodoItem
-            v-for="todo in todosFilter"
-            :key="todo.id"
-            :todo="todo"
-            @removedTodo="removeTodo"
-            @updateStatus="updateStatus"
-          />
+            <TodoItem
+              v-for="todo in todosFilter"
+              :key="todo.id"
+              :todo="todo"
+              @removedTodo="removeTodo"
+              @updateStatus="updateStatus"
+            />
           </transition-group>
         </ul>
       </div>
       <Footer
-      :showClearCompletedBtn="showClearCompletedBtn"
-      @onClearCompleted="onClearCompleted" @filter="filter = $event" />
+        :showClearCompletedBtn="showClearCompletedBtn"
+        @onClearCompleted="onClearCompleted"
+        @filter="filter = $event"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import TodoItem from './../components/features/TodoItem'
-import TodoInput from './../components/features/TodoInput'
-import TodoRemaining from './../components/features/TodoRemaining'
-import Header from './../components/layouts/Header'
-import Footer from './../components/layouts/Footer'
-import { todoLocalStorage } from './../store/todoLocalStorage.js'
+import TodoItem from "./../components/features/TodoItem";
+import TodoInput from "./../components/features/TodoInput";
+import TodoRemaining from "./../components/features/TodoRemaining";
+import Header from "./../components/layouts/Header";
+import Footer from "./../components/layouts/Footer";
+import { todoLocalStorage } from "./../store/todoLocalStorage.js";
+import firebase from "firebase/app";
 
 export default {
-  name: 'ToDoList',
+  name: "ToDoList",
   components: {
     TodoItem,
     TodoInput,
@@ -45,11 +48,22 @@ export default {
     Header,
     Footer
   },
-  data () {
+  created() {
+    this.data = firebase.database().ref("todos");
+    this.data.on("value", snapshot => {
+      const obj = snapshot.val();
+      const a = Object.keys(obj).map(function(key) {
+        return {key, ...obj[key]};
+      });
+      this.todos = a;
+    });
+  },
+  data() {
     return {
-      todos: todoLocalStorage.get("todos"),
-      filter: 'all'
-    }
+      todos: [],
+      filter: "all",
+      data: null
+    };
   },
   computed: {
     itemLeft() {
@@ -57,9 +71,9 @@ export default {
     },
     todosFilter() {
       switch (this.filter) {
-        case 'active':
+        case "active":
           return this.todos.filter(v => !v.completed);
-        case 'completed':
+        case "completed":
           return this.todos.filter(v => v.completed);
         default:
           return this.todos;
@@ -75,25 +89,34 @@ export default {
         id,
         title: newTodo,
         completed: false
-      })
+      });
+      this.data
+        .push({
+          id,
+          title: newTodo,
+          completed: false
+        })
+        .then(() => {
+        });
     },
     updateStatus(id, completed) {
       this.todos.some(v => {
-        return v.id === id ? v.completed = completed : false;
+        return v.id === id ? (v.completed = completed) : false;
       });
     },
     onClearCompleted() {
-      this.todos = this.todos.filter(v => !v.completed)
+      this.todos = this.todos.filter(v => !v.completed);
     },
     removeTodo(id) {
       this.todos.map((v, index) => {
-        if (v.id === id) {
+        if (v.key === id) {
           this.todos.splice(index, 1);
         }
-      })
+      });
+      firebase.database().ref("todos/" + id).remove();
     }
   },
-   watch: {
+  watch: {
     todos: {
       handler(todos) {
         todoLocalStorage.set("todos", todos);
@@ -101,7 +124,7 @@ export default {
       deep: true
     }
   }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">

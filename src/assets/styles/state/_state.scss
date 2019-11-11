@@ -235,6 +235,9 @@
 .p-0 {
   padding: 0;
 }
+.p-h-10 {
+  @include pxRem(padding, 0 10);
+}
 .pl-5 {
   @include pxRem("padding-left", 5);
 }
