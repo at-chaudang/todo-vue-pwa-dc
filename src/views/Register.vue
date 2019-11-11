@@ -39,10 +39,11 @@ export default {
   },
   methods: {
     signUp: function() {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function(user) {
-          alert('Your account has been created.' + user);
-        }).catch(function(error) {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(res => {
+          alert(`Your account has been created for ${res.user.email}`);
+          this.$router.push('/');
+        }).catch(error => {
           alert('Oops. ' + error.message);
         });
     }
