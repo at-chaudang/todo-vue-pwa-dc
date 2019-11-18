@@ -5,14 +5,19 @@
     </h6>
     <h1 class="logo txt-center white col-6">Todo</h1>
     <button @click="logout" class="col-3 white">Logout</button>
+    <UserInfo />
   </header>
 </template>
 
 <script>
 import firebase from "firebase/app";
+import UserInfo from './../features/UserInfo';
 
 export default {
   name: "Header",
+  components: {
+    UserInfo
+  },
   data() {
     return {
       isLoggedIn: false,
