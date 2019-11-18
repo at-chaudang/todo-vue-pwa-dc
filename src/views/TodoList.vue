@@ -52,10 +52,9 @@ export default {
     this.data = firebase.database().ref("todos/" + firebase.auth().currentUser.uid);
     this.data.on("value", snapshot => {
       const obj = snapshot.val() || [];
-      const a = Object.keys(obj).map(function(key) {
+      this.todos = Object.keys(obj).map(function(key) {
         return {key, ...obj[key]};
       });
-      this.todos = a;
     });
   },
   data() {
@@ -124,14 +123,6 @@ export default {
         }
       });
       this.data.child(id).remove();
-    }
-  },
-  watch: {
-    todos: {
-      handler(todos) {
-        todoLocalStorage.set("todos", todos);
-      },
-      deep: true
     }
   }
 };
