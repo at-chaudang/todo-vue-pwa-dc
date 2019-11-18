@@ -46,10 +46,10 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(res => {
+        .then(() => {
           this.$router.push("/");
         })
-        .catch(error => {
+        .catch(() => {
           // alert(`Oops. ${error.message}`);
         });
     },
@@ -74,7 +74,6 @@ export default {
         .then(() => {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
           this.$router.replace({ name: "TodoList" });
-
           // ...
         })
         .catch(() => {

@@ -1,6 +1,6 @@
 <template>
   <header class="page-header d-flex vertical horizontal">
-    <h6 class="txt-limit col-3 p-h-10">
+    <h6 class="txt-limit col-3 header-left">
       <img class="img-avatar" :src="image_URL" alt="avatar">
     </h6>
     <h1 class="logo txt-center white col-6">Todo</h1>
@@ -24,7 +24,7 @@ export default {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
-      this.image_URL = firebase.auth().currentUser.photoURL;
+      this.image_URL = firebase.auth().currentUser.photoURL || 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
     }
   },
   methods: {
