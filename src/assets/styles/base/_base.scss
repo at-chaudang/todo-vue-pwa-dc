@@ -45,6 +45,9 @@ h6 {
 ul, li {
   list-style: none;
 }
+img {
+  width: 100%;
+}
 .mt-1 {
   margin-top: 1rem;
 }
@@ -62,4 +65,14 @@ ul, li {
 }
 .text-gray {
   color: map-get($colors, txt-gray);
+}
+.avatar {
+  height: 64px;
+  width: 64px;
+  color: white;
+  border-radius: 50%;
+  top: 16px;
+  left: 16px;
+  overflow: hidden;
+  text-align: center;
 }

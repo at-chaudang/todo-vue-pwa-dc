@@ -1,7 +1,6 @@
 <template>
   <div class="todo-list-page">
     <div class="container">
-      <UserInfo />
       <Header />
       <div class="main-container">
         <TodoInput @addTodo="addTodo" />
@@ -12,7 +11,7 @@
             enter-active-class="animated fadeInDown"
             leave-active-class="animated fadeOutUp"
           >
-            <TodoItem
+            <ToDoItem
               v-for="todo in todosFilter"
               :key="todo.id"
               :todo="todo"
@@ -37,8 +36,9 @@ import TodoInput from "./../components/features/TodoInput";
 import TodoRemaining from "./../components/features/TodoRemaining";
 import Header from "./../components/layouts/Header";
 import Footer from "./../components/layouts/Footer";
-import UserInfo from './../components/features/UserInfo'
+// import UserInfo from './../components/features/UserInfo'
 import { todoLocalStorage } from "./../store/todoLocalStorage.js";
+import firebase from "firebase/app";
 
 export default {
   name: "ToDoList",
@@ -47,8 +47,7 @@ export default {
     TodoInput,
     TodoRemaining,
     Header,
-    Footer,
-    UserInfo
+    Footer
   },
   created() {
     this.data = firebase.database().ref("todos");
