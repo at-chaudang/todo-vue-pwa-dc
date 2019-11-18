@@ -5,4 +5,9 @@
     @include pxRem(letter-spacing, 4);
     text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
   }
+  .img-avatar {
+    @include pxRem(width, 50);
+    vertical-align: middle;
+    border-radius: 50%;
+  }
 }

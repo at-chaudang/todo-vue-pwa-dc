@@ -21,12 +21,16 @@ const configOptions = {
 };
 
 firebase.initializeApp(configOptions);
-
 // <!-- The core Firebase JS SDK is always required and must be listed first -->
 {/* <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script> */}
 
+let app;
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    new Vue({
+      router,
+      render: h => h(App),
+    }).$mount('#app')
+  }
+})
 
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')

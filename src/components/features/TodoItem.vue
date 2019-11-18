@@ -5,7 +5,7 @@
       <input type="checkbox" class="d-none" v-model="completed"/>
       <span class="txt-limit todo-item-text" :title="title">{{title}}</span>
     </label>
-    <div class="delete-icon pointer d-flex center" @click="removeTodo(id)">&times;</div>
+    <div class="delete-icon pointer d-flex center" @click="removeTodo(key)">&times;</div>
   </li>
 </template>
 
@@ -22,7 +22,8 @@ export default {
     return {
       id: this.todo.id,
       title: this.todo.title,
-      completed: this.todo.completed
+      completed: this.todo.completed,
+      key: this.todo.key
     }
   },
   methods: {
