@@ -25,6 +25,12 @@
           <i class="iconf iconf-remove-done d-none"></i>
           Clear Completed
       </li>
+      <li class="tabbar-item pointer item-clear">
+        <router-link v-bind:to="'user'">
+           <i class="iconf iconf-home d-none"></i>
+          User
+        </router-link>
+      </li>
     </ul>
   </footer>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div class="todo-list-page">
     <div class="container">
+      <UserInfo />
       <Header />
       <div class="main-container">
         <TodoInput @addTodo="addTodo" />
@@ -34,6 +35,7 @@ import TodoInput from './../components/features/TodoInput'
 import TodoRemaining from './../components/features/TodoRemaining'
 import Header from './../components/layouts/Header'
 import Footer from './../components/layouts/Footer'
+import UserInfo from './../components/features/UserInfo'
 import { todoLocalStorage } from './../store/todoLocalStorage.js'
 
 export default {
@@ -43,7 +45,8 @@ export default {
     TodoInput,
     TodoRemaining,
     Header,
-    Footer
+    Footer,
+    UserInfo
   },
   data () {
     return {

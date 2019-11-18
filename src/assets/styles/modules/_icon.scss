@@ -106,37 +106,42 @@
 
 .iconf-home {
   &:before {
-    content: $iconf-home; 
+    content: $iconf-home;
   }
 }
 .iconf-add {
   &:before {
-    content: $iconf-add; 
+    content: $iconf-add;
   }
 }
 .iconf-list-task-2 {
   &:before {
-    content: $iconf-list-task-2; 
+    content: $iconf-list-task-2;
   }
 }
 .iconf-task-active {
   &:before {
-    content: $iconf-task-active; 
+    content: $iconf-task-active;
   }
 }
 .iconf-task-done {
   &:before {
-    content: $iconf-task-done; 
+    content: $iconf-task-done;
   }
 }
 .iconf-list-task {
   &:before {
-    content: $iconf-list-task; 
+    content: $iconf-list-task;
   }
 }
 .iconf-remove-done {
   &:before {
-    content: $iconf-remove_done; 
+    content: $iconf-remove_done;
+  }
+}
+.iconf-home {
+  &:before {
+    content: $iconf-home;
   }
 }
 

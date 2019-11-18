@@ -116,3 +116,9 @@
 @mixin itemWidth($number) {
   width: calc(100%/2 - 5%);
 }
+@mixin transition($parameters) {
+  -webkit-transition : $parameters;
+     -moz-transition : $parameters;
+      -ms-transition : $parameters;
+          transition : $parameters;
+}
