@@ -85,6 +85,26 @@
     overflow: auto;
   }
 }
+.remain-block {
+  @include pxRem('padding', 10 15);
+  .remain-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  .remain-list-item {
+    width: 33%;
+    text-align: center;
+    p {
+      font-size: 13px;
+      line-height: 11px;
+    }
+    span {
+      color: map-get($colors, primary);
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
 
 @media (max-width: 767px) {
   body {
@@ -94,7 +114,7 @@
     border: 0;
   }
   .main-container {
-    @include pxRem(padding, 95 10 0 10);
+    @include pxRem(padding, 70 10 0 10);
     @include pxRem(margin, 0);
   }
   .page-header {

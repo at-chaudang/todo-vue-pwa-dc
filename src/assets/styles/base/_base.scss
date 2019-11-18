@@ -67,6 +67,9 @@ img {
 .text-gray {
   color: map-get($colors, txt-gray);
 }
+.text-bold {
+  font-weight: bold;
+}
 .avatar {
   height: 45px;
   width: 45px;
