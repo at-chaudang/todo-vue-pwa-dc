@@ -3,6 +3,9 @@
     <div class="auth-container">
       <div class="title mb-1">
         <h2>Welcome!</h2>
+        <transition name="bounce">
+          <span v-if="message" class="message-error">{{message}}</span>
+        </transition>
       </div>
       <div class="form-custom">
         <div class="form-group mb-2">
@@ -37,8 +40,9 @@ export default {
   name: "login",
   data() {
     return {
-      email: "",
-      password: ""
+      email: '',
+      password: '',
+      message: ''
     };
   },
   methods: {
@@ -49,8 +53,11 @@ export default {
         .then(() => {
           this.$router.push("/");
         })
-        .catch(() => {
-          // alert(`Oops. ${error.message}`);
+        .catch(error => {
+          this.message = error.message;
+          setTimeout(() => {
+            this.message = '';
+          }, 3000);
         });
     },
     signInWithGoogle() {
@@ -62,9 +69,12 @@ export default {
           this.$router.replace({ name: "TodoList" });
           // ...
         })
-        .catch(() => {
+        .catch(error => {
           // Handle Errors here.
-          // ...
+          this.message = error.message;
+          setTimeout(() => {
+            this.message = '';
+          }, 3000);
         });
     },
     signInWithFacebook() {
@@ -76,9 +86,12 @@ export default {
           this.$router.replace({ name: "TodoList" });
           // ...
         })
-        .catch(() => {
+        .catch(error => {
           // Handle Errors here.
-          // ...
+          this.message = error.message;
+          setTimeout(() => {
+            this.message = '';
+          }, 3000);
         });
     }
   }

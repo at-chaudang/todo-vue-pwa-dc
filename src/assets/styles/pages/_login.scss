@@ -4,4 +4,10 @@
     display: flex;
     align-items: flex-end;
   }
+  .message-error {
+    @include pxRem(padding, 0 10);
+    @include pxRem(font-size, 12);
+    text-align: center;
+    color: red;
+  }
 }
