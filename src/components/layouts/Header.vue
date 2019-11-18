@@ -1,10 +1,12 @@
 <template>
   <header class="page-header d-flex vertical horizontal">
-    <h6 class="txt-limit col-3 header-left" @click="showUserInfo">
-      <img class="img-avatar" :src="image_URL" alt="avatar">
-    </h6>
+    <div class="txt-limit col-3 header-left">
+      <div class="avatar" @click="showUserInfo">
+        <img class="" :src="image_URL" alt="avatar">
+      </div>
+    </div>
     <h1 class="logo txt-center white col-6">Todo</h1>
-    <button @click="logout" class="col-3 white">Logout</button>
+    <div class="col-3"></div>
     <UserInfo :showUserCmp="showUserCmp" @closeUserCmp="hideUserInfo" v-bind:class="{show: showUserCmp}" />
   </header>
 </template>

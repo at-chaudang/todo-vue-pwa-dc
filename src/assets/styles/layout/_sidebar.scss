@@ -17,8 +17,14 @@
     height: 100%;
   }
   .sidebar-header {
-    @include pxRem('padding', 15);
+    @include pxRem('padding', 20);
     border-bottom: 1px solid map-get($colors, border);
+    text-align: center;
+    .avatar {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto;
+    }
     .title {
       display: inline-block;
       font-size: 14px;
@@ -31,7 +37,6 @@
       a {
         @include pxRem('padding', 15);
         display: inline-block;
-        color: map-get($colors, secondary);
       }
     }
   }
