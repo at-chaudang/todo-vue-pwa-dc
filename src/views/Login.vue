@@ -47,11 +47,10 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(res => {
-          alert(`You are sign in as ${res.user.email}`);
           this.$router.push("/");
         })
         .catch(error => {
-          alert(`Oops. ${error.message}`);
+          // alert(`Oops. ${error.message}`);
         });
     },
     signInWithGoogle() {
@@ -60,20 +59,11 @@ export default {
         .signInWithPopup(providerGoogle)
         .then(() => {
           // This gives you a Google Access Token. You can use it to access the Google API.
-          // var token = result.credential.accessToken;
-          // The signed-in user info.
-          // var user = result.user;
           this.$router.replace({ name: "TodoList" });
           // ...
         })
         .catch(() => {
           // Handle Errors here.
-          // var errorCode = error.code;
-          // var errorMessage = error.message;
-          // The email of the user's account used.
-          // var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          // var credential = error.credential;
           // ...
         });
     },
@@ -83,21 +73,12 @@ export default {
         .signInWithPopup(providerFacebook)
         .then(() => {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          // var token = result.credential.accessToken;
-          // The signed-in user info.
-          // var user = result.user;
           this.$router.replace({ name: "TodoList" });
 
           // ...
         })
         .catch(() => {
           // Handle Errors here.
-          // var errorCode = error.code;
-          // var errorMessage = error.message;
-          // The email of the user's account used.
-          // var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          // var credential = error.credential;
           // ...
         });
     }

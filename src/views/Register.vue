@@ -15,11 +15,9 @@
           </div>
         <button @click="signUp" class="btn btn-primary">Register</button>
       </div>
-
       <p class="text-small text-center mt-1">You have a account?
         <router-link v-bind:to="'login'">Login</router-link>
       </p>
-
     </div>
   </div>
 </template>
@@ -41,10 +39,8 @@ export default {
     signUp: function() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(res => {
-          alert(`Your account has been created for ${res.user.email}`);
           this.$router.push('/');
         }).catch(error => {
-          alert('Oops. ' + error.message);
         });
     }
   },
