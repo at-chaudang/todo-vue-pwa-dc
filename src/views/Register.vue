@@ -38,9 +38,9 @@ export default {
   methods: {
     signUp: function() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(res => {
+        .then(() => {
           this.$router.push('/');
-        }).catch(error => {
+        }).catch(() => {
         });
     }
   },

@@ -49,9 +49,9 @@ export default {
     Footer
   },
   created() {
-    this.data = firebase.database().ref("todos");
+    this.data = firebase.database().ref("todos/" + firebase.auth().currentUser.uid);
     this.data.on("value", snapshot => {
-      const obj = snapshot.val();
+      const obj = snapshot.val() || [];
       const a = Object.keys(obj).map(function(key) {
         return {key, ...obj[key]};
       });
