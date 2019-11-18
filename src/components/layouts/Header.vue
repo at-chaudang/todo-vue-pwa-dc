@@ -1,11 +1,11 @@
 <template>
   <header class="page-header d-flex vertical horizontal">
-    <h6 class="txt-limit col-3 header-left">
+    <h6 class="txt-limit col-3 header-left" @click="showUserInfo">
       <img class="img-avatar" :src="image_URL" alt="avatar">
     </h6>
     <h1 class="logo txt-center white col-6">Todo</h1>
     <button @click="logout" class="col-3 white">Logout</button>
-    <UserInfo />
+    <UserInfo v-bind:class="{show: showUserCmp}" />
   </header>
 </template>
 
@@ -22,7 +22,8 @@ export default {
     return {
       isLoggedIn: false,
       currentUser: false,
-      image_URL: ''
+      image_URL: '',
+      showUserCmp: false
     };
   },
   created() {
@@ -33,6 +34,9 @@ export default {
     }
   },
   methods: {
+    showUserInfo() {
+      this.showUserCmp = true;
+    },
     logout() {
       firebase
         .auth()
