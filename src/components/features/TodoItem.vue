@@ -34,7 +34,7 @@ export default {
   watch: {
     completed: {
       handler() {
-        this.$emit('updateStatus', this.id, this.completed);
+        this.$emit('updateStatus', this.key, this.completed);
       },
       deep: true
     }

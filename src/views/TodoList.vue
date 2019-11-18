@@ -99,13 +99,23 @@ export default {
         .then(() => {
         });
     },
-    updateStatus(id, completed) {
+    updateStatus(key, completed) {
       this.todos.some(v => {
-        return v.id === id ? (v.completed = completed) : false;
+        if (v.key === key) {
+          this.data.child(key).update({completed});
+          return true;
+        }
+        return false;
       });
     },
     onClearCompleted() {
-      this.todos = this.todos.filter(v => !v.completed);
+      this.todos = this.todos.filter(v => {
+        if (v.completed === true) {
+          this.data.child(v.key).remove();
+        } else {
+          return v;
+        }
+      });
     },
     removeTodo(id) {
       this.todos.map((v, index) => {
@@ -113,7 +123,7 @@ export default {
           this.todos.splice(index, 1);
         }
       });
-      firebase.database().ref("todos/" + id).remove();
+      this.data.child(id).remove();
     }
   },
   watch: {
