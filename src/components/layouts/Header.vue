@@ -5,7 +5,7 @@
     </h6>
     <h1 class="logo txt-center white col-6">Todo</h1>
     <button @click="logout" class="col-3 white">Logout</button>
-    <UserInfo v-bind:class="{show: showUserCmp}" />
+    <UserInfo :showUserCmp="showUserCmp" @closeUserCmp="hideUserInfo" v-bind:class="{show: showUserCmp}" />
   </header>
 </template>
 
@@ -36,6 +36,10 @@ export default {
   methods: {
     showUserInfo() {
       this.showUserCmp = true;
+    },
+    hideUserInfo(data) {
+      console.log('hide', data);
+      this.showUserCmp = data;
     },
     logout() {
       firebase

@@ -1,9 +1,14 @@
 <template>
-  <div class="sidebar user-info" id="user-info" @click="close">
+  <div class="sidebar user-info" id="user-info">
+    <div class="back-area">
+      <div class="back" @click="closeUserCmp">
+        <img src="./../../assets/images/arrow-left-solid.svg" alt="arrow-left-solid.svg">
+      </div>
+    </div>
     <div class="sidebar-content">
       <div class="sidebar-header">
         <div class="avatar">
-          <img class="img-avatar" :src="image_URL" alt="avatar">
+          <img class="avatar" :src="image_URL" alt="avatar">
         </div>
         <span class="title">{{email}}</span>
       </div>
@@ -46,9 +51,9 @@ export default {
           this.$router.push("/login");
         });
     },
-    close() {
+    closeUserCmp() {
       console.log('close');
-      this.$emit('close', false);
+      this.$emit('closeUserCmp', false);
     }
   }
 }
