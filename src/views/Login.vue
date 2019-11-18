@@ -13,15 +13,17 @@
           <label class="control-label">Password</label>
           <input v-model="password" type="password" class="form-control" />
         </div>
-        <button class="btn btn-primary w-50" @click="signInWithAccount">Sign In</button>
-        <button class="btn-text w-50 d-inline-block">
-          <router-link to="/register">Sign up</router-link>
-        </button>
+        <button class="btn btn-primary" @click="signInWithAccount">Sign In</button>
         <p class="text-small text-center mt-1">or sign in with</p>
         <div class="btn-group mt-1">
           <button @click="signInWithGoogle" class="btn btn-outline-primary">Sign in with Google</button>
           <button @click="signInWithFacebook" class="btn btn-outline-primary">Sign in with Facebook</button>
         </div>
+      </div>
+      <div class="text-small text-center mt-1 sign-up">
+        <p class="">Don't have an account?
+          <router-link v-bind:to="'register'">Sign up</router-link>
+        </p>
       </div>
     </div>
   </div>

@@ -3,8 +3,10 @@
     <div class="container">
       <Header />
       <div class="main-container">
+        <div class="remain-block">
+          <TodoRemaining :itemLeft="itemLeft" />
+        </div>
         <TodoInput @addTodo="addTodo" />
-        <TodoRemaining :itemLeft="itemLeft" />
         <ul class="todo-list">
           <transition-group
             name="fade"
