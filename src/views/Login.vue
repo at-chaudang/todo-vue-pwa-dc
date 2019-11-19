@@ -1,13 +1,14 @@
 <template>
   <div class="login-form auth-pages">
     <div class="auth-container">
-      <div class="title mb-1">
+      <div class="title mb-2">
         <h2>Welcome!</h2>
-        <transition name="bounce">
-          <span v-if="message" class="message-error">{{message}}</span>
-        </transition>
       </div>
-      <div class="form-custom">
+      <div v-if="!message" class="message-error"></div>
+      <transition name="fade" >
+        <div v-if="message" class="message-error">{{message}}</div>
+      </transition>
+      <div class="form-custom mt-1">
         <div class="form-group mb-2">
           <label class="control-label">Email</label>
           <input v-model="email" type="text" class="form-control" autocomplete=""/>
@@ -57,9 +58,6 @@ export default {
         })
         .catch(error => {
           this.message = error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
         });
     },
     signInWithGoogle() {
@@ -74,9 +72,6 @@ export default {
         .catch(error => {
           // Handle Errors here.
           this.message = error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
         });
     },
     signInWithFacebook() {
@@ -91,9 +86,6 @@ export default {
         .catch(error => {
           // Handle Errors here.
           this.message = error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
         });
     }
   }

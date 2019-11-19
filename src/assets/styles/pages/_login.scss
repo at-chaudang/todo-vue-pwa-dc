@@ -14,8 +14,8 @@
   }
 }
 .message-error {
-  @include pxRem(padding, 0 10);
-  @include pxRem(font-size, 12);
+  @include pxRem(font-size, 13);
+  @include pxRem(min-height, 16);
   text-align: center;
   color: red;
 }

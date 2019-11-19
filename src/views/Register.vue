@@ -1,13 +1,14 @@
 <template>
   <div class="register-form auth-pages">
     <div class="auth-container">
-      <div class="title mb-1">
-        <h2 class="flex-container">Register</h2>
-        <transition name="bounce">
-          <span v-if="message" class="message-error flex-container">{{message}}</span>
-        </transition>
+      <div class="title mb-2">
+        <h2>Register</h2>
       </div>
-      <div class="form-custom">
+      <div v-if="!message" class="message-error"></div>
+      <transition name="fade" >
+        <div v-if="message" class="message-error">{{message}}</div>
+      </transition>
+      <div class="form-custom mt-1">
         <div class="form-group mb-2">
           <label class="control-label">Email</label>
           <input v-model="email" type="text" class="form-control">
@@ -48,9 +49,6 @@ export default {
     signUp: function() {
       if (this.password !== this.confirmPassword) {
         this.message = 'Your password and confirm password do not match.';
-        setTimeout(() => {
-          this.message = '';
-        }, 3000);
         return;
       };
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
@@ -58,9 +56,6 @@ export default {
           this.$router.push('/');
         }).catch(error => {
           this.message = error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
         });
     }
   },
