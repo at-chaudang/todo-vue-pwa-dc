@@ -3,8 +3,8 @@
     <div class="container">
       <Header />
       <div class="main-container">
+        <TodoRemaining :countAllTask="countAllTask" :countActiveItem="countActiveItem" :countCompletedItem="countCompletedItem" />
         <TodoInput @addTodo="addTodo" />
-        <TodoRemaining :itemLeft="itemLeft" />
         <ul class="todo-list">
           <transition-group
             name="fade"
@@ -65,8 +65,14 @@ export default {
     };
   },
   computed: {
-    itemLeft() {
+    countAllTask() {
+      return this.todos.length;
+    },
+    countActiveItem() {
       return this.todos.filter(v => !v.completed).length;
+    },
+    countCompletedItem() {
+      return this.todos.filter(v => v.completed).length;
     },
     todosFilter() {
       switch (this.filter) {

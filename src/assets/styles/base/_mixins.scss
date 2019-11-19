@@ -116,3 +116,14 @@
 @mixin itemWidth($number) {
   width: calc(100%/2 - 5%);
 }
+@mixin transition($parameters) {
+  -webkit-transition : $parameters;
+     -moz-transition : $parameters;
+      -ms-transition : $parameters;
+          transition : $parameters;
+}
+@mixin fa-background($path) {
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  background-image: url($path);
+}
