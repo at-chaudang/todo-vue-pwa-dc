@@ -13,6 +13,9 @@
     @include pxRem(height, 100);
     display: flex;
     align-items: flex-end;
+    .flex-container {
+      flex: 2 0;
+    }
   }
 }
 .auth-container {

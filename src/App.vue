@@ -5,8 +5,6 @@
 </template>
 
 <script>
-// import TodoList from './views/TodoList.vue'
-// import Login from './views/Login.vue'
 
 export default {
   name: 'app',

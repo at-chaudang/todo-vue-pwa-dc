@@ -36,7 +36,6 @@ import TodoInput from "./../components/features/TodoInput";
 import TodoRemaining from "./../components/features/TodoRemaining";
 import Header from "./../components/layouts/Header";
 import Footer from "./../components/layouts/Footer";
-import { todoLocalStorage } from "./../store/todoLocalStorage.js";
 import firebase from "firebase/app";
 
 export default {

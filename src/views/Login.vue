@@ -4,7 +4,11 @@
       <div class="title mb-1">
         <h2>Welcome!</h2>
       </div>
-      <div class="form-custom">
+      <div v-if="!message" class="message-error"></div>
+      <transition name="fade" >
+        <div v-if="message" class="message-error">{{message}}</div>
+      </transition>
+      <div class="form-custom mt-1">
         <div class="form-group mb-2">
           <label class="control-label">Email</label>
           <input v-model="email" type="text" class="form-control" autocomplete=""/>
@@ -39,8 +43,9 @@ export default {
   name: "login",
   data() {
     return {
-      email: "",
-      password: ""
+      email: '',
+      password: '',
+      message: ''
     };
   },
   methods: {
@@ -51,8 +56,8 @@ export default {
         .then(() => {
           this.$router.push("/");
         })
-        .catch(() => {
-          // alert(`Oops. ${error.message}`);
+        .catch(error => {
+          this.message = error.message;
         });
     },
     signInWithGoogle() {
@@ -64,9 +69,9 @@ export default {
           this.$router.replace({ name: "TodoList" });
           // ...
         })
-        .catch(() => {
+        .catch(error => {
           // Handle Errors here.
-          // ...
+          this.message = error.message;
         });
     },
     signInWithFacebook() {
@@ -78,9 +83,9 @@ export default {
           this.$router.replace({ name: "TodoList" });
           // ...
         })
-        .catch(() => {
+        .catch(error => {
           // Handle Errors here.
-          // ...
+          this.message = error.message;
         });
     }
   }
