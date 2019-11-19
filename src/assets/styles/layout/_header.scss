@@ -8,9 +8,5 @@
   .header-left {
     @include pxRem(padding, 0 15);
   }
-  .img-avatar {
-    @include pxRem(width, 50);
-    vertical-align: middle;
-    border-radius: 50%;
-  }
+
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-form d-flex is-relative">
+  <div class="todo-form d-flex is-relative mb-1">
     <input
       type="text"
       class="todo-input form-control"

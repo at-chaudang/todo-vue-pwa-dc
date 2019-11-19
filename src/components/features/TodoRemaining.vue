@@ -1,8 +1,20 @@
 <template>
-  <div class="tabbar-item item-left txt-center mt-10 italic">
-    <span>You have </span>
-    <strong class="color-primary">{{itemLeft}}</strong>
-    <span> task(s) left.</span>
+  <div class="remain-block mb-1">
+    <ul class="remain-list">
+      <li class="remain-list-item">
+        <span>{{countAllTask}}</span>
+        <p>All task</p>
+      </li>
+      <li class="remain-list-item">
+        <span>{{countActiveItem}}</span>
+        <p>Active</p>
+      </li>
+      <li class="remain-list-item">
+        <span>{{countCompletedItem}}</span>
+        <p>Completed</p>
+      </li>
+    </ul>
+    </ul>
   </div>
 </template>
 
@@ -10,7 +22,9 @@
 export default {
   name: 'TodoRemaining',
   props: {
-    itemLeft: Number
+    countAllTask: Number,
+    countActiveItem: Number,
+    countCompletedItem: Number
   },
   data() {
     return {}
