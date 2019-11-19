@@ -39,7 +39,7 @@ export default {
     if (firebase.auth().currentUser) {
       console.log(firebase.auth().currentUser);
       this.email = firebase.auth().currentUser.email;
-      this.image_URL = firebase.auth().currentUser.photoURL;
+      this.image_URL = firebase.auth().currentUser.photoURL || 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
     }
   },
   methods: {
