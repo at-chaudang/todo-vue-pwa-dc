@@ -16,8 +16,9 @@
         <button class="btn btn-primary" @click="signInWithAccount">Sign In</button>
         <p class="text-small text-center mt-1">or sign in with</p>
         <div class="btn-group mt-1">
-          <button @click="signInWithGoogle" class="btn btn-outline-primary">Sign in with Google</button>
-          <button @click="signInWithFacebook" class="btn btn-outline-primary">Sign in with Facebook</button>
+          <button @click="signInWithGoogle" class="btn btn-outline-primary btn-social google">
+          </button>
+          <button @click="signInWithFacebook" class="btn btn-outline-primary btn-social facabook"></button>
         </div>
       </div>
       <div class="text-small text-center mt-1 sign-up">

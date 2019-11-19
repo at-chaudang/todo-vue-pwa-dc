@@ -12,4 +12,15 @@
     transform: translate(-50%);
     min-width: 170px;
   }
+  .btn-social {
+    @include pxRem(height, 70);
+    @include pxRem(width, 70);
+    border: 0;
+    background: url('https://img.icons8.com/plasticine/100/000000/facebook-new.png') center no-repeat;
+    background-size: cover;
+    &.google {
+      background: url('https://img.icons8.com/plasticine/100/000000/google-logo.png') center no-repeat;
+      background-size: cover;
+    }
+  }
 }
