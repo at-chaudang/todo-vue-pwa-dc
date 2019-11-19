@@ -40,7 +40,6 @@ export default {
       this.showUserCmp = true;
     },
     hideUserInfo(data) {
-      console.log('hide', data);
       this.showUserCmp = data;
     },
     logout() {
