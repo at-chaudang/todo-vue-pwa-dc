@@ -14,7 +14,6 @@
         <p>Completed</p>
       </li>
     </ul>
-    </ul>
   </div>
 </template>
 

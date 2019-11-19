@@ -1,8 +1,11 @@
 <template>
   <div class="register-form auth-pages">
     <div class="auth-container">
-      <div class="title  mb-1">
-        <h2>Register</h2>
+      <div class="title mb-1">
+        <h2 class="flex-container">Register</h2>
+        <transition name="bounce">
+          <span v-if="message" class="message-error flex-container">{{message}}</span>
+        </transition>
       </div>
       <div class="form-custom">
         <div class="form-group mb-2">
@@ -32,7 +35,8 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      message: ''
     };
   },
   methods: {
@@ -40,7 +44,11 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
           this.$router.push('/');
-        }).catch(() => {
+        }).catch(error => {
+          this.message = error.message;
+          setTimeout(() => {
+            this.message = '';
+          }, 3000);
         });
     }
   },
