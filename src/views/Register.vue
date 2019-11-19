@@ -1,7 +1,7 @@
 <template>
   <div class="register-form auth-pages">
     <div class="auth-container">
-      <div class="title mb-2">
+      <div class="title mb-1">
         <h2>Register</h2>
       </div>
       <div v-if="!message" class="message-error"></div>
