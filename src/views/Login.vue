@@ -20,8 +20,8 @@
         <button class="btn btn-primary" @click="signInWithAccount">Sign In</button>
         <p class="text-small text-center mt-1">or sign in with</p>
         <div class="btn-group mt-1">
-          <button @click="signInWithGoogle" class="btn btn-outline-primary">Google</button>
-          <button @click="signInWithFacebook" class="btn btn-outline-primary">Facebook</button>
+          <button @click="signInWithSocial()" class="btn btn-outline-primary">Google</button>
+          <button @click="signInWithSocial('facebook')" class="btn btn-outline-primary">Facebook</button>
         </div>
       </div>
       <div class="text-small text-center mt-1 sign-up">
@@ -34,13 +34,15 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from 'firebase';
 
-var providerGoogle = new firebase.auth.GoogleAuthProvider();
-var providerFacebook = new firebase.auth.FacebookAuthProvider();
+var provider = {
+  google: new firebase.auth.GoogleAuthProvider(),
+  facebook: new firebase.auth.FacebookAuthProvider()
+}
 
 export default {
-  name: "login",
+  name: 'login',
   data() {
     return {
       email: '',
@@ -54,34 +56,18 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          this.$router.push("/");
+          this.$router.push('/');
         })
         .catch(error => {
           this.message = error.message;
         });
     },
-    signInWithGoogle() {
+    signInWithSocial(social = 'google') {
       firebase
         .auth()
-        .signInWithPopup(providerGoogle)
+        .signInWithPopup(provider[social])
         .then(() => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          this.$router.replace({ name: "TodoList" });
-          // ...
-        })
-        .catch(error => {
-          // Handle Errors here.
-          this.message = error.message;
-        });
-    },
-    signInWithFacebook() {
-      firebase
-        .auth()
-        .signInWithPopup(providerFacebook)
-        .then(() => {
-          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          this.$router.replace({ name: "TodoList" });
-          // ...
+          this.$router.replace({ name: 'TodoList' });
         })
         .catch(error => {
           // Handle Errors here.

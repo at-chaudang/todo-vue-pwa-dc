@@ -32,17 +32,9 @@ export default {
   methods: {
     addTodo() {
       if (this.newTodo.trim().length) {
-        this.$emit('addTodo', this.newTodo, this.getNewId());
+        this.$emit('addTodo', this.newTodo);
         this.newTodo = '';
       }
-    },
-    getNewId() {
-      const id = this.getLastId() + 1;
-      localStorage.setItem('lastTodoId', id);
-      return id;
-    },
-    getLastId() {
-      return +localStorage.getItem('lastTodoId') || 0;
     }
   }
 };

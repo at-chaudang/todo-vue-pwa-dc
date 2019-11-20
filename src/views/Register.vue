@@ -33,7 +33,6 @@
 <script>
 
 import firebase from 'firebase/app';
-require('firebase/auth')
 
 export default {
   name: 'register',
@@ -46,11 +45,11 @@ export default {
     };
   },
   methods: {
-    signUp: function() {
+    signUp() {
       if (this.password !== this.confirmPassword) {
         this.message = 'Your password and confirm password do not match.';
         return;
-      };
+      }
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
           this.$router.push('/');
@@ -58,6 +57,6 @@ export default {
           this.message = error.message;
         });
     }
-  },
+  }
 }
 </script>>

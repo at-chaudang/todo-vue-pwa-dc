@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 import UserInfo from './../features/UserInfo';
 
 export default {
-  name: "Header",
+  name: 'Header',
   components: {
     UserInfo
   },
@@ -25,6 +25,7 @@ export default {
       isLoggedIn: false,
       currentUser: false,
       image_URL: '',
+      image_default: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
       showUserCmp: false
     };
   },
@@ -32,7 +33,7 @@ export default {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
-      this.image_URL = firebase.auth().currentUser.photoURL || 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
+      this.image_URL = firebase.auth().currentUser.photoURL || this.image_default;
     }
   },
   methods: {
@@ -47,7 +48,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push("/login");
+          this.$router.push('/login');
         });
     }
   }

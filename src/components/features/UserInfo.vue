@@ -21,11 +21,8 @@
   </div>
 </template>
 
-<style id="setting">
-</style>
-
 <script>
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 export default {
   name: 'UserInfo',
   props: ['showUserCmp'],
@@ -33,12 +30,13 @@ export default {
     return {
       email: '',
       image_URL: '',
+      image_default: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
     };
   },
   created() {
     if (firebase.auth().currentUser) {
       this.email = firebase.auth().currentUser.email;
-      this.image_URL = firebase.auth().currentUser.photoURL || 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
+      this.image_URL = firebase.auth().currentUser.photoURL || this.image_default;
     }
   },
   methods: {
@@ -47,7 +45,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push("/login");
+          this.$router.push('/login');
         });
     },
     closeUserCmp() {
