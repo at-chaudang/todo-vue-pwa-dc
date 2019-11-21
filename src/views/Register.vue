@@ -50,7 +50,7 @@ export default {
       if (this.password !== this.confirmPassword) {
         this.message = 'Your password and confirm password do not match.';
         return;
-      };
+      }
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
           this.$router.push('/');
