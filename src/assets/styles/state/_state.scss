@@ -202,34 +202,34 @@
   margin-left: auto;
 }
 .mb-10 {
-  @include pxRem("margin-bottom", 10);
+  @include pxRem(margin-bottom, 10);
 }
 .mb-25 {
-  @include pxRem("margin-bottom", 25);
+  @include pxRem(margin-bottom, 25);
 }
 .mb-30 {
-  @include pxRem("margin-bottom", 30);
+  @include pxRem(margin-bottom, 30);
 }
 .mt-5 {
-  @include pxRem("margin-top", 5);
+  @include pxRem(margin-top, 5);
 }
 .mt-10 {
-  @include pxRem("margin-top", 10);
+  @include pxRem(margin-top, 10);
 }
 .mt-15 {
-  @include pxRem("margin-top", 15);
+  @include pxRem(margin-top, 15);
 }
 .mt-20 {
-  @include pxRem("margin-top", 20);
+  @include pxRem(margin-top, 20);
 }
 .mt-25 {
-  @include pxRem("margin-top", 25);
+  @include pxRem(margin-top, 25);
 }
 .mt-30 {
-  @include pxRem("margin-top", 30);
+  @include pxRem(margin-top, 30);
 }
 .mt-45 {
-  @include pxRem("margin-top", 45);
+  @include pxRem(margin-top, 45);
 }
 // Padding
 .p-0 {
@@ -239,43 +239,43 @@
   @include pxRem(padding, 0 10);
 }
 .pl-5 {
-  @include pxRem("padding-left", 5);
+  @include pxRem(padding-left, 5);
 }
 .pl-15 {
-  @include pxRem("padding-left", 15);
+  @include pxRem(padding-left, 15);
 }
 .pl-25 {
-  @include pxRem("padding-left", 25);
+  @include pxRem(padding-left, 25);
 }
 .pl-45 {
-  @include pxRem("padding-left", 45);
+  @include pxRem(padding-left, 45);
 }
 .pl-60 {
-  @include pxRem("padding-left", 60);
+  @include pxRem(padding-left, 60);
 }
 .pr-10 {
-  @include pxRem("padding-right", 10);
+  @include pxRem(padding-right, 10);
 }
 .pb-10 {
-  @include pxRem("padding-bottom", 10);
+  @include pxRem(padding-bottom, 10);
 }
 .pb-25 {
-  @include pxRem("padding-bottom", 25);
+  @include pxRem(padding-bottom, 25);
 }
 .p-y-10 {
-  @include pxRem("padding", 10 0);
+  @include pxRem(padding, 10 0);
 }
 .pt-25 {
-  @include pxRem("padding-top", 25);
+  @include pxRem(padding-top, 25);
 }
 .pt-20 {
-  @include pxRem("padding-top", 20);
+  @include pxRem(padding-top, 20);
 }
 .pt-15 {
-  @include pxRem("padding-top", 15);
+  @include pxRem(padding-top, 15);
 }
 .pt-10 {
-  @include pxRem("padding-top", 10);
+  @include pxRem(padding-top, 10);
 }
 .clr {
   @extend %clr;

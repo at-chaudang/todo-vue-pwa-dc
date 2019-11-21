@@ -3,7 +3,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  @include pxRem('padding-top', 50);
+  @include pxRem(padding-top, 50);
   font-family: $font-body;
   line-height: 1.6;
   font-weight: 400;
@@ -26,22 +26,22 @@ h6 {
   font-weight: 700;
 }
 h1 {
-  @include pxRem('font-size', 26);
+  @include pxRem(font-size, 26);
 }
 h2 {
-  @include pxRem('font-size', 24);
+  @include pxRem(font-size, 24);
 }
 h3 {
-  @include pxRem('font-size', 22);
+  @include pxRem(font-size, 22);
 }
 h4 {
-  @include pxRem('font-size', 20);
+  @include pxRem(font-size, 20);
 }
 h5 {
-  @include pxRem('font-size', 18);
+  @include pxRem(font-size, 18);
 }
 h6 {
-  @include pxRem('font-size', 16);
+  @include pxRem(font-size, 16);
 }
 ul, li {
   list-style: none;
@@ -59,7 +59,7 @@ img {
   margin-bottom: 2rem;
 }
 .text-small {
-  @include pxRem('font-size', 12);
+  @include pxRem(font-size, 12);
 }
 .text-center {
   text-align: center;
@@ -71,19 +71,19 @@ img {
   font-weight: bold;
 }
 .avatar {
-  height: 45px;
-  width: 45px;
-  color: white;
+  @include pxRem(height, 45);
+  @include pxRem(width, 45);
+  @include pxRem(top, 16);
+  @include pxRem(left, 16);
+  color: map-get($colors, white);
   border-radius: 50%;
-  top: 16px;
-  left: 16px;
   overflow: hidden;
   text-align: center;
 }
 .back-area {
-  padding: 10px 15px;
+  @include pxRem(padding, 10 15);
   .back {
-    width: 14px;
-    height: 14px;
+    @include pxRem(width, 14);
+    @include pxRem(height, 14);
   }
 }

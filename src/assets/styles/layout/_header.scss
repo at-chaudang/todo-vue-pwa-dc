@@ -3,7 +3,7 @@
   background: map-get($colors, primary);
   .logo {
     @include pxRem(letter-spacing, 4);
-    text-shadow: -1px -1px 1px #ececec, 1px 1px 1px #909090;
+    text-shadow: -1px -1px 1px map-get($colors, text-shadow-1), 1px 1px 1px map-get($colors, text-shadow-2);
   }
   .header-left {
     @include pxRem(padding, 0 15);

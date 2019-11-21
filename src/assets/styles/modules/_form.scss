@@ -13,16 +13,16 @@ input::placeholder {
   color: map-get($colors, placeholder);
 }
 input:disabled {
-  border: 1px solid map-get($colors, d-a);
-  background: map-get($colors, p-g);
+  border: 1px solid map-get($colors, border);
+  background: map-get($colors, input-disabled);
 }
 button {
   font-family: $font-body;
 }
 textarea {
-  @include pxRem("border-radius", 4);
-  @include pxRem("padding", 10 15);
-  @include pxRem("font-size", 14);
+  @include pxRem(border-radius, 4);
+  @include pxRem(padding, 10 15);
+  @include pxRem(font-size, 14);
   border: 1px solid map-get($colors, border);
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
   outline: 0;
@@ -32,7 +32,7 @@ textarea {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
 }
 .form-field {
-  @include pxRem("margin-bottom", 10);
+  @include pxRem(margin-bottom, 10);
 }
 .form-control-hidden {
   max-height: 0;
@@ -57,7 +57,7 @@ form {
     border: 2px solid map-get($colors, checkbox-border);
   }
   .mat-error {
-    @include pxRem("padding", 0 15);
+    @include pxRem(padding, 0 15);
   }
 }
 .form-custom {

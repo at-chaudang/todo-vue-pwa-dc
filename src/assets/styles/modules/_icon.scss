@@ -1,77 +1,12 @@
-[class*='icon-'] {
+[class*="icon-"] {
   display: inline-block;
   background-position: center;
   background-repeat: no-repeat;
 }
-.icon-dolla {
-  @include pxRem('width', 25);
-  @include pxRem('height', 25);
-  background: map-get($colors, primary);
-  border-radius: 50%;
-  text-align: center;
-}
-.icon-question {
-  @include pxRem('width', 15);
-  @include pxRem('height', 15);
-  border: solid 1px map-get($colors, secondary);
-  border-radius: 50%;
-  cursor: pointer;
-  &::after {
-    content: '?';
-    @include pxRem('line-height', 15);
-    @include pxRem('font-size', 10);
-    color: map-get($colors, secondary);
-    text-align: center;
-    display: block;
-  }
-}
-.ic-triangel-down {
-  position: absolute;
-  &::before {
-    @include pxRem('border', 5 solid transparent);
-    border-top-color: map-get($colors, black);
-    content: '';
-    display: block;
-  }
-}
-.ic-triangel-up {
-  position: absolute;
-  &::before {
-    @include pxRem('border', 5 solid transparent);
-    border-bottom-color: map-get($colors, black);
-    content: '';
-    display: block;
-  }
-}
-.arrow {
-  border: solid map-get($colors, icon-arrow);
-  @include pxRem('padding', 4);
-  @include pxRem('border-width', 0 2 2 0);
-  display: inline-block;
-  &.up {
-    transform: rotate(-135deg);
-  }
-  &.down {
-    transform: rotate(45deg);
-  }
-}
-.ic-success {
-  &::after {
-    @include pxRem('width', 6);
-    @include pxRem('height', 12);
-    border: solid map-get($colors, black);
-    @include pxRem('border-width', 0 2 2 0);
-    content: '';
-    display: block;
-    position: relative;
-    right: 0;
-    transform: rotate(45deg);
-  }
-}
 
 .iconf {
-  @include pxRem('font-size', 14);
-  @include pxRem('min-width', 16);
+  @include pxRem(font-size, 14);
+  @include pxRem(min-width, 16);
   text-align: center;
   display: inline-block;
 }
