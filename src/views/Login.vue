@@ -26,7 +26,7 @@
       </div>
       <div class="text-small text-center mt-1 sign-up">
         <p class="">Don't have an account?
-          <router-link v-bind:to="'register'">Sign up</router-link>
+          <router-link to="register">Sign up</router-link>
         </p>
       </div>
     </div>

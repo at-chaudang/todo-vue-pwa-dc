@@ -33,8 +33,9 @@
   }
   .sidebar-menu {
     .sidebar-menu-item {
-      a {
+      button {
         @include pxRem(padding, 15);
+        color: map-get($colors, primary);
         display: inline-block;
       }
     }
