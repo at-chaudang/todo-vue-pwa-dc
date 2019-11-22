@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="text-small text-center mt-1 sign-up">
-        <p class="">Don't have an account?
+        <p>Don't have an account?
           <router-link to="register">Sign up</router-link>
         </p>
       </div>
