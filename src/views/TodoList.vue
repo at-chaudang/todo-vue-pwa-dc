@@ -3,7 +3,11 @@
     <div class="container">
       <Header />
       <div class="main-container">
-        <TodoRemaining :countAllTask="countAllTask" :countActiveItem="countActiveItem" :countCompletedItem="countCompletedItem" />
+        <TodoRemaining
+          :countAllTask="countAllTask"
+          :countActiveItem="countActiveItem"
+          :countCompletedItem="countCompletedItem"
+        />
         <TodoInput @addTodo="addTodo" />
         <ul class="todo-list">
           <transition-group
@@ -13,7 +17,7 @@
           >
             <TodoItem
               v-for="todo in todosFilter"
-              :key="todo.id"
+              :key="todo.key"
               :todo="todo"
               @removedTodo="removeTodo"
               @updateStatus="updateStatus"
@@ -31,15 +35,15 @@
 </template>
 
 <script>
-import TodoItem from "./../components/features/TodoItem";
-import TodoInput from "./../components/features/TodoInput";
-import TodoRemaining from "./../components/features/TodoRemaining";
-import Header from "./../components/layouts/Header";
-import Footer from "./../components/layouts/Footer";
-import firebase from "firebase/app";
+import TodoItem from './../components/features/TodoItem';
+import TodoInput from './../components/features/TodoInput';
+import TodoRemaining from './../components/features/TodoRemaining';
+import Header from './../components/layouts/Header';
+import Footer from './../components/layouts/Footer';
+import firebase from 'firebase/app';
 
 export default {
-  name: "ToDoList",
+  name: 'ToDoList',
   components: {
     TodoItem,
     TodoInput,
@@ -48,18 +52,18 @@ export default {
     Footer
   },
   created() {
-    this.data = firebase.database().ref("todos/" + firebase.auth().currentUser.uid);
-    this.data.on("value", snapshot => {
+    this.data = firebase.database().ref(`todos/${firebase.auth().currentUser.uid}`);
+    this.data.on('value', snapshot => {
       const obj = snapshot.val() || [];
-      this.todos = Object.keys(obj).map(function(key) {
-        return {key, ...obj[key]};
+      this.todos = Object.keys(obj).map(key => {
+        return { key, ...obj[key] };
       });
     });
   },
   data() {
     return {
       todos: [],
-      filter: "all",
+      filter: 'all',
       data: null
     };
   },
@@ -75,9 +79,9 @@ export default {
     },
     todosFilter() {
       switch (this.filter) {
-        case "active":
+        case 'active':
           return this.todos.filter(v => !v.completed);
-        case "completed":
+        case 'completed':
           return this.todos.filter(v => v.completed);
         default:
           return this.todos;
@@ -88,25 +92,22 @@ export default {
     }
   },
   methods: {
-    addTodo(newTodo, id) {
+    addTodo(newTodo) {
       this.todos.unshift({
-        id,
         title: newTodo,
         completed: false
       });
       this.data
         .push({
-          id,
           title: newTodo,
           completed: false
         })
-        .then(() => {
-        });
+        .then(() => {});
     },
     updateStatus(key, completed) {
       this.todos.some(v => {
         if (v.key === key) {
-          this.data.child(key).update({completed});
+          this.data.child(key).update({ completed });
           return true;
         }
         return false;
@@ -121,13 +122,13 @@ export default {
         }
       });
     },
-    removeTodo(id) {
+    removeTodo(key) {
       this.todos.map((v, index) => {
-        if (v.key === id) {
+        if (v.key === key) {
           this.todos.splice(index, 1);
         }
       });
-      this.data.child(id).remove();
+      this.data.child(key).remove();
     }
   }
 };

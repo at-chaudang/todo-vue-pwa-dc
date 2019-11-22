@@ -20,15 +20,14 @@ export default {
   },
   data () {
     return {
-      id: this.todo.id,
       title: this.todo.title,
       completed: this.todo.completed,
       key: this.todo.key
     }
   },
   methods: {
-    removeTodo(id) {
-      this.$emit("removedTodo", id);
+    removeTodo(key) {
+      this.$emit('removedTodo', key);
     }
   },
   watch: {

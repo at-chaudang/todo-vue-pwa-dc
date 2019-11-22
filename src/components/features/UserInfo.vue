@@ -8,37 +8,35 @@
     <div class="sidebar-content">
       <div class="sidebar-header">
         <div class="avatar">
-          <img class="avatar" :src="image_URL" alt="avatar">
+          <img class="avatar" :src="imageUrl" alt="avatar">
         </div>
         <span class="title">{{email}}</span>
       </div>
       <ul class="sidebar-menu">
         <li class="sidebar-menu-item">
-          <a href='#' @click="logout" class="">Logout</a>
+          <button @click="logout">Logout</button>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<style id="setting">
-</style>
-
 <script>
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 export default {
   name: 'UserInfo',
   props: ['showUserCmp'],
   data() {
     return {
       email: '',
-      image_URL: '',
+      imageUrl: '',
+      imageDefault: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
     };
   },
   created() {
     if (firebase.auth().currentUser) {
       this.email = firebase.auth().currentUser.email;
-      this.image_URL = firebase.auth().currentUser.photoURL || 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png';
+      this.imageUrl = firebase.auth().currentUser.photoURL || this.imageDefault;
     }
   },
   methods: {
@@ -47,7 +45,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push("/login");
+          this.$router.push('/login');
         });
     },
     closeUserCmp() {
